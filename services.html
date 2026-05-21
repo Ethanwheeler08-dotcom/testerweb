@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Services — Oleo</title>
+<meta name="description" content="Media, production and web development for ambitious brands. Three services, one team, end-to-end." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav__inner">
+    <a href="index.html" class="logo">Oleo<span class="dot"></span></a>
+    <div class="nav__menu">
+      <a href="services.html" class="active">Services</a>
+      <a href="work.html">Work</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="btn">Book a call
+        <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <button class="nav__toggle" onclick="toggleNav()" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <p class="page-hero__eyebrow">Services</p>
+    <h1>Three disciplines.<br>One <span class="underlined">team<svg viewBox="0 0 200 16" preserveAspectRatio="none"><path d="M2 10 Q 50 2, 100 8 T 198 6"/></svg></span> end-to-end.</h1>
+    <p class="page-hero__copy">
+      Most marketing problems aren't solved in one channel. So we built Oleo to handle three — media, production and web — under one roof, with one team. Briefs don't get lost between vendors, and feedback loops are tight.
+    </p>
+  </div>
+</section>
+
+<section class="section" style="padding-top: 2rem;">
+  <div class="container">
+    <div class="diff-cards">
+
+      <a href="services/media.html" class="diff-card" style="text-decoration: none; cursor: pointer;">
+        <div class="diff-card__icon">
+          <svg viewBox="0 0 64 64" fill="none">
+            <rect class="accent" x="10" y="32" width="10" height="22" fill="#5d71ff"/>
+            <rect class="line" x="27" y="20" width="10" height="34" stroke="#0f1112" stroke-width="2.5" fill="none"/>
+            <rect class="line" x="44" y="10" width="10" height="44" stroke="#0f1112" stroke-width="2.5" fill="none"/>
+            <path class="line" d="M8 8 L 56 8 M 8 8 L 14 4 M 8 8 L 14 12" stroke="#0f1112" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <p class="diff-card__eyebrow">01 / MEDIA</p>
+        <h3 class="diff-card__title">Paid media that<br>actually scales</h3>
+        <div class="diff-card__plus">
+          <svg width="20" height="20" viewBox="0 0 20 20"><path d="M2 10 L 18 10 M 11 3 L 18 10 L 11 17" stroke="#0f1112" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+
+      <a href="services/production.html" class="diff-card" style="text-decoration: none; cursor: pointer;">
+        <div class="diff-card__icon">
+          <svg viewBox="0 0 64 64" fill="none">
+            <rect class="line" x="6" y="16" width="38" height="32" rx="3" stroke="#0f1112" stroke-width="2.5" fill="none"/>
+            <path class="accent" d="M44 24 L 58 18 L 58 46 L 44 40 Z" fill="#5d71ff"/>
+            <circle class="line" cx="16" cy="32" r="4" stroke="#0f1112" stroke-width="2" fill="none"/>
+          </svg>
+        </div>
+        <p class="diff-card__eyebrow">02 / PRODUCTION</p>
+        <h3 class="diff-card__title">Photo and video<br>built for paid</h3>
+        <div class="diff-card__plus">
+          <svg width="20" height="20" viewBox="0 0 20 20"><path d="M2 10 L 18 10 M 11 3 L 18 10 L 11 17" stroke="#0f1112" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+
+      <a href="services/web-development.html" class="diff-card" style="text-decoration: none; cursor: pointer;">
+        <div class="diff-card__icon">
+          <svg viewBox="0 0 64 64" fill="none">
+            <rect class="line" x="6" y="12" width="52" height="40" rx="3" stroke="#0f1112" stroke-width="2.5" fill="none"/>
+            <path class="line" d="M6 22 L 58 22" stroke="#0f1112" stroke-width="2.5"/>
+            <circle cx="12" cy="17" r="1.5" fill="#0f1112"/>
+            <circle cx="17" cy="17" r="1.5" fill="#0f1112"/>
+            <path class="accent" d="M22 35 L 16 41 L 22 47 M 42 35 L 48 41 L 42 47 M 28 47 L 36 31" stroke="#5d71ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+        <p class="diff-card__eyebrow">03 / WEB DEV</p>
+        <h3 class="diff-card__title">Websites built<br>to convert</h3>
+        <div class="diff-card__plus">
+          <svg width="20" height="20" viewBox="0 0 20 20"><path d="M2 10 L 18 10 M 11 3 L 18 10 L 11 17" stroke="#0f1112" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="diff-footer">
+      <p class="diff-footer__copy">
+        You can hire us for one discipline or all three. Most clients start with media or web, and add the others as their funnel matures. Whatever the scope, you'll work with the same senior team end-to-end.
+      </p>
+      <a href="contact.html" class="btn">Get a quote
+        <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dark">
+  <div class="container">
+    <h2 class="section__title">How we <span class="underlined">work<svg viewBox="0 0 200 16" preserveAspectRatio="none"><path d="M2 10 Q 50 2, 100 8 T 198 6"/></svg></span></h2>
+    <p class="section__intro">A consistent rhythm across every engagement — whether you've hired us for a single video shoot or a full performance retainer.</p>
+
+    <div class="process">
+      <div class="process__step">
+        <div class="process__num">01</div>
+        <h3>Discover</h3>
+        <p>We start with a working session — your brand, market, customer, current performance, and where you want to be in 12 months.</p>
+      </div>
+      <div class="process__step">
+        <div class="process__num">02</div>
+        <h3>Strategy</h3>
+        <p>A short, opinionated document. What we'd run, where we'd focus first, what success looks like, and what it'll cost.</p>
+      </div>
+      <div class="process__step">
+        <div class="process__num">03</div>
+        <h3>Build & launch</h3>
+        <p>Whether it's an account rebuild, a video shoot, or a new site, we ship in tight iterations rather than waterfalling.</p>
+      </div>
+      <div class="process__step">
+        <div class="process__num">04</div>
+        <h3>Test & scale</h3>
+        <p>Weekly reviews, monthly strategy. We test our way to scale rather than guessing — and you'll always know what we changed and why.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="container">
+    <div class="contact__grid">
+      <div>
+        <h2 class="contact__heading">
+          Not sure which service you need?
+        </h2>
+        <div class="contact-details" style="margin-top: 2rem;">
+          <div>
+            <h4>Email</h4>
+            <a href="mailto:hello@oleocreative.com.au">hello@oleocreative.com.au</a>
+          </div>
+          <div>
+            <h4>Call</h4>
+            <a href="tel:+61400000000">+61 400 000 000</a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <form class="contact__form" onsubmit="event.preventDefault(); alert('Form submitted — in production this would email you directly.');">
+          <label for="name">Your name</label>
+          <input id="name" type="text" placeholder="Jane Smith" required />
+
+          <label for="email">Email address</label>
+          <input id="email" type="email" placeholder="jane@brand.com" required />
+
+          <label for="service">What are you after?</label>
+          <select id="service">
+            <option>Not sure yet</option>
+            <option>Media</option>
+            <option>Production</option>
+            <option>Web Development</option>
+            <option>A combination</option>
+          </select>
+
+          <button type="submit" class="btn" style="margin-top: 1.5rem;">
+            Send it through
+            <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <h2 class="footer__heading">Let's work<br><span class="underlined"><em>together</em><svg viewBox="0 0 200 16" preserveAspectRatio="none"><path d="M2 10 Q 50 2, 100 8 T 198 6"/></svg></span></h2>
+        <a href="contact.html" class="btn btn--cream">Say hello
+          <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="footer__col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services/media.html">Media</a></li>
+          <li><a href="services/production.html">Production</a></li>
+          <li><a href="services/web-development.html">Web Development</a></li>
+          <li><a href="services.html">All services</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Work</h4>
+        <ul>
+          <li><a href="work.html">Case studies</a></li>
+          <li><a href="work/kentaur.html">Kentaur Australia</a></li>
+          <li><a href="work/grow-innovate.html">Grow Innovate</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Oleo</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>Oleo · Midland, Western Australia · 2026</span>
+      <span>hello@oleocreative.com.au</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

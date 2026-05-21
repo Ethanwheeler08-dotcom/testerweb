@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact — Oleo</title>
+<meta name="description" content="Get in touch with Oleo. Book a 30-minute intro call, email, or message us — and we'll come back to you within a day." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav__inner">
+    <a href="index.html" class="logo">Oleo<span class="dot"></span></a>
+    <div class="nav__menu">
+      <a href="services.html">Services</a>
+      <a href="work.html">Work</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="contact.html" class="btn">Book a call
+        <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <button class="nav__toggle" onclick="toggleNav()" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <p class="page-hero__eyebrow">Contact</p>
+    <h1>Let's <span class="underlined">talk<svg viewBox="0 0 200 16" preserveAspectRatio="none"><path d="M2 10 Q 50 2, 100 8 T 198 6"/></svg></span></h1>
+    <p class="page-hero__copy">
+      The fastest way to figure out if we're a fit is a 30-minute intro call. Book a time below, email us directly, or drop a few lines through the form. We come back within a working day.
+    </p>
+  </div>
+</section>
+
+<section class="section" style="padding-top: 2rem;">
+  <div class="container">
+    <div class="contact__grid" style="align-items: start;">
+      <div>
+        <form class="contact__form" onsubmit="event.preventDefault(); alert('Form submitted — in production this would email you directly.');">
+          <label for="name">Your name</label>
+          <input id="name" type="text" placeholder="Jane Smith" required />
+
+          <label for="email">Email address</label>
+          <input id="email" type="email" placeholder="jane@brand.com" required />
+
+          <label for="company">Company / brand</label>
+          <input id="company" type="text" placeholder="Your business" />
+
+          <label for="service">What are you after?</label>
+          <select id="service">
+            <option>Not sure yet — let's chat</option>
+            <option>Media (paid ads)</option>
+            <option>Production (photo / video)</option>
+            <option>Web development</option>
+            <option>A combination</option>
+            <option>Partner / referral enquiry</option>
+          </select>
+
+          <label for="msg">A few lines about what you need</label>
+          <textarea id="msg" rows="3" placeholder="Current setup, biggest challenge, what success looks like"></textarea>
+
+          <button type="submit" class="btn" style="margin-top: 1.5rem;">
+            Send it through
+            <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </form>
+      </div>
+
+      <div>
+        <h2 style="font-family: var(--font-display); font-size: clamp(1.75rem, 2.6vw, 2.4rem); font-weight: 500; letter-spacing: -0.025em; margin-bottom: 1.5rem;">
+          Or reach out <em style="font-style: italic;">directly</em>
+        </h2>
+        <p style="font-size: 1.1rem; line-height: 1.55; margin-bottom: 1rem;">
+          For most things, the quickest path is email or a 30-minute call. Pick whichever feels right.
+        </p>
+
+        <div class="contact-details">
+          <div>
+            <h4>Email</h4>
+            <a href="mailto:hello@oleocreative.com.au">hello@oleocreative.com.au</a>
+          </div>
+          <div>
+            <h4>Call</h4>
+            <a href="tel:+61400000000">+61 400 000 000</a>
+          </div>
+          <div>
+            <h4>Studio</h4>
+            <p>Midland<br>Western Australia<br>6056</p>
+          </div>
+          <div>
+            <h4>Hours</h4>
+            <p>Mon–Fri<br>8.30am – 5.30pm AWST</p>
+          </div>
+          <div>
+            <h4>Instagram</h4>
+            <a href="#">@oleo.creative</a>
+          </div>
+          <div>
+            <h4>LinkedIn</h4>
+            <a href="#">/company/oleo-creative</a>
+          </div>
+        </div>
+
+        <div class="calendar-embed">
+          <h3 class="calendar-embed__heading">Book a 30-minute intro call</h3>
+          <p style="font-size: 1rem; line-height: 1.55; opacity: 0.85;">
+            We'll learn about your brand and current setup, share where we'd focus first, and you can decide if we're a fit. No pressure, no slide deck.
+          </p>
+          <div class="calendar-embed__placeholder">
+            <p>Calendar embed</p>
+            <p style="margin-bottom: 0;">Drop a Calendly or Cal.com inline embed in this block.<br>e.g. <code>&lt;div class="calendly-inline-widget" data-url="https://calendly.com/oleocreative/intro"&gt;&lt;/div&gt;</code></p>
+            <a href="#" class="btn btn--cream" style="margin-top: 1.5rem;">
+              Open calendar
+              <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dark">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+      <div>
+        <h2 class="section__title" style="margin-bottom: 1.5rem;">What to <span class="underlined">expect<svg viewBox="0 0 200 16" preserveAspectRatio="none"><path d="M2 10 Q 50 2, 100 8 T 198 6"/></svg></span></h2>
+        <p style="font-size: 1.15rem; line-height: 1.6; opacity: 0.9; margin-bottom: 1rem;">
+          A short, focused chat. No discovery deck disguised as a meeting. We'll ask honest questions about where you're at, what you've tried, and where you want to go.
+        </p>
+        <p style="font-size: 1.15rem; line-height: 1.6; opacity: 0.9;">
+          If we're a fit, you'll have a proposal within a week. If we're not, we'll tell you and — where we can — point you to someone who is.
+        </p>
+      </div>
+      <div>
+        <div class="process" style="grid-template-columns: 1fr 1fr; margin-top: 0; gap: 2.5rem;">
+          <div class="process__step">
+            <div class="process__num">01</div>
+            <h3>Intro call</h3>
+            <p>30 minutes, video. We chat about your brand and what you're trying to do.</p>
+          </div>
+          <div class="process__step">
+            <div class="process__num">02</div>
+            <h3>Quick audit</h3>
+            <p>If it makes sense, we'll do a free audit and share what we'd focus on first.</p>
+          </div>
+          <div class="process__step">
+            <div class="process__num">03</div>
+            <h3>Proposal</h3>
+            <p>A short doc — scope, timeline, cost. No 80-slide pitch decks.</p>
+          </div>
+          <div class="process__step">
+            <div class="process__num">04</div>
+            <h3>Kick off</h3>
+            <p>Typically 1–2 weeks from sign-off. Senior team, day one.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <h2 class="footer__heading">Let's work<br><span class="underlined"><em>together</em><svg viewBox="0 0 200 16" preserveAspectRatio="none"><path d="M2 10 Q 50 2, 100 8 T 198 6"/></svg></span></h2>
+        <a href="contact.html" class="btn btn--cream">Say hello
+          <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="footer__col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services/media.html">Media</a></li>
+          <li><a href="services/production.html">Production</a></li>
+          <li><a href="services/web-development.html">Web Development</a></li>
+          <li><a href="services.html">All services</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Work</h4>
+        <ul>
+          <li><a href="work.html">Case studies</a></li>
+          <li><a href="work/kentaur.html">Kentaur Australia</a></li>
+          <li><a href="work/grow-innovate.html">Grow Innovate</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Oleo</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>Oleo · Midland, Western Australia · 2026</span>
+      <span>hello@oleocreative.com.au</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

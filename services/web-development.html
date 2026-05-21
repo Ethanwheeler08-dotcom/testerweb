@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Web Development — Oleo</title>
+<meta name="description" content="Fast, accessible websites built to convert. Shopify, WordPress, custom and landing pages — tied directly into your funnel." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav__inner">
+    <a href="../index.html" class="logo">Oleo<span class="dot"></span></a>
+    <div class="nav__menu">
+      <a href="../services.html" class="active">Services</a>
+      <a href="../work.html">Work</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../contact.html" class="btn">Book a call
+        <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <button class="nav__toggle" onclick="toggleNav()" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <p class="page-hero__eyebrow">03 / Web Development</p>
+    <h1>Websites built to <span class="underlined">convert<svg viewBox="0 0 200 16" preserveAspectRatio="none"><path d="M2 10 Q 50 2, 100 8 T 198 6"/></svg></span></h1>
+    <p class="page-hero__copy">
+      Fast, accessible, and tied directly into the media that drives traffic to them. Shopify stores, marketing sites, landing pages — designed and built to do a specific job.
+    </p>
+    <div class="page-hero__cta">
+      <a href="../contact.html" class="btn">Scope a build
+        <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="../work.html" class="btn btn--ghost">See web work</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--cream-light">
+  <div class="container">
+    <div class="two-col">
+      <h2 class="section__title">What's <span class="underlined">included<svg viewBox="0 0 200 16" preserveAspectRatio="none"><path d="M2 10 Q 50 2, 100 8 T 198 6"/></svg></span></h2>
+      <div class="two-col__copy">
+        <p>We build websites the way a media team would — with conversion, performance and tracking baked in from day one. No bloated themes, no pages full of stock animations that slow Core Web Vitals to a crawl.</p>
+        <p>Every site we ship is fast, accessible, easy to edit, and properly instrumented.</p>
+      </div>
+    </div>
+
+    <div class="deliverables">
+      <div class="deliverables__item">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M3 10 L 8 15 L 17 5" stroke="#5d71ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div>
+          <h4>Shopify & Shopify Plus</h4>
+          <p>Custom themes, theme refactors and Plus-level builds for serious ecommerce brands.</p>
+        </div>
+      </div>
+      <div class="deliverables__item">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M3 10 L 8 15 L 17 5" stroke="#5d71ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div>
+          <h4>Marketing & brand sites</h4>
+          <p>Bespoke marketing sites in Webflow, Astro, or hand-coded — depending on what you need to maintain it.</p>
+        </div>
+      </div>
+      <div class="deliverables__item">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M3 10 L 8 15 L 17 5" stroke="#5d71ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div>
+          <h4>Landing pages for paid</h4>
+          <p>Single-purpose pages built to match ad creative — and tested in the same loop as the campaigns.</p>
+        </div>
+      </div>
+      <div class="deliverables__item">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M3 10 L 8 15 L 17 5" stroke="#5d71ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div>
+          <h4>WordPress & headless</h4>
+          <p>Custom WordPress builds, headless WP with a modern front end, and Sanity/Strapi when content scale demands it.</p>
+        </div>
+      </div>
+      <div class="deliverables__item">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M3 10 L 8 15 L 17 5" stroke="#5d71ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div>
+          <h4>CRO & A/B testing</h4>
+          <p>Ongoing conversion testing with proper statistical significance — not "we ran it for 3 days and it looks better".</p>
+        </div>
+      </div>
+      <div class="deliverables__item">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M3 10 L 8 15 L 17 5" stroke="#5d71ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div>
+          <h4>Performance & Core Web Vitals</h4>
+          <p>Sub-second TTI, perfect Lighthouse scores when it matters — fast loads are an SEO and CVR lever.</p>
+        </div>
+      </div>
+      <div class="deliverables__item">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M3 10 L 8 15 L 17 5" stroke="#5d71ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div>
+          <h4>Tracking & analytics</h4>
+          <p>GTM, GA4, server-side tracking, event taxonomy — set up properly the first time.</p>
+        </div>
+      </div>
+      <div class="deliverables__item">
+        <svg viewBox="0 0 20 20" fill="none"><path d="M3 10 L 8 15 L 17 5" stroke="#5d71ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div>
+          <h4>Ongoing support</h4>
+          <p>Retainers for content updates, design tweaks, new pages and campaign-specific landing pages.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dark">
+  <div class="container">
+    <h2 class="section__title">Our <span class="underlined">process<svg viewBox="0 0 200 16" preserveAspectRatio="none"><path d="M2 10 Q 50 2, 100 8 T 198 6"/></svg></span></h2>
+    <p class="section__intro">From discovery to launch — typically 6–10 weeks for a marketing site, 8–14 for an ecommerce build.</p>
+
+    <div class="process">
+      <div class="process__step">
+        <div class="process__num">01</div>
+        <h3>Discovery</h3>
+        <p>We map your customer journey, current site analytics, competitor sites, and what's working. Strategy first, design second.</p>
+      </div>
+      <div class="process__step">
+        <div class="process__num">02</div>
+        <h3>Design</h3>
+        <p>High-fidelity mockups in Figma. We design key templates rather than every page — and keep the system flexible.</p>
+      </div>
+      <div class="process__step">
+        <div class="process__num">03</div>
+        <h3>Build</h3>
+        <p>Clean code, sensible CMS structure, proper accessibility, fast loads. We test on real devices, not just simulators.</p>
+      </div>
+      <div class="process__step">
+        <div class="process__num">04</div>
+        <h3>Launch & iterate</h3>
+        <p>Soft launch, monitoring period, then full migration. After launch, we keep testing and optimising as data comes in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--cream-light">
+  <div class="container container--narrow">
+    <h2 class="section__title">Questions we get <span class="underlined">often<svg viewBox="0 0 200 16" preserveAspectRatio="none"><path d="M2 10 Q 50 2, 100 8 T 198 6"/></svg></span></h2>
+
+    <div class="accordion accordion--light" style="margin-top: 3rem;">
+      <div class="accordion__item open">
+        <div class="accordion__header" onclick="toggleAcc(this)">
+          <span>What does a website build cost?</span>
+          <svg class="accordion__arrow" viewBox="0 0 37 38" fill="none">
+            <path d="M11.2 2C25.5 14 31.7 15.1 34.4 16C34.4 16.1 34.4 16.1 34.4 16.1C16.9 18.2 16.2 18.4 1.5 19" stroke="#0f1112" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M34.6 16.1C34.6 16.1 22.6 24.7 12.4 36" stroke="#0f1112" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="accordion__body">
+          <div class="accordion__body-inner">
+            <p>Marketing sites typically start at $12k; ecommerce builds (Shopify) start at $18k and scale up depending on integration complexity, custom features and migration scope.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <div class="accordion__header" onclick="toggleAcc(this)">
+          <span>Do you use templates or build custom?</span>
+          <svg class="accordion__arrow" viewBox="0 0 37 38" fill="none">
+            <path d="M11.2 2C25.5 14 31.7 15.1 34.4 16C34.4 16.1 34.4 16.1 34.4 16.1C16.9 18.2 16.2 18.4 1.5 19" stroke="#0f1112" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M34.6 16.1C34.6 16.1 22.6 24.7 12.4 36" stroke="#0f1112" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="accordion__body">
+          <div class="accordion__body-inner">
+            <p>Custom design, custom code. We don't sell themes off the shelf. We're efficient about it — our designers and developers use a strong component system — but each site is built to your brand.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <div class="accordion__header" onclick="toggleAcc(this)">
+          <span>Will I be able to edit content myself?</span>
+          <svg class="accordion__arrow" viewBox="0 0 37 38" fill="none">
+            <path d="M11.2 2C25.5 14 31.7 15.1 34.4 16C34.4 16.1 34.4 16.1 34.4 16.1C16.9 18.2 16.2 18.4 1.5 19" stroke="#0f1112" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M34.6 16.1C34.6 16.1 22.6 24.7 12.4 36" stroke="#0f1112" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="accordion__body">
+          <div class="accordion__body-inner">
+            <p>Yes — we use Shopify, WordPress, Webflow or Sanity depending on the project. You'll get a walkthrough at handover and a Loom video library you can revisit any time.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <div class="accordion__header" onclick="toggleAcc(this)">
+          <span>Do you handle hosting?</span>
+          <svg class="accordion__arrow" viewBox="0 0 37 38" fill="none">
+            <path d="M11.2 2C25.5 14 31.7 15.1 34.4 16C34.4 16.1 34.4 16.1 34.4 16.1C16.9 18.2 16.2 18.4 1.5 19" stroke="#0f1112" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M34.6 16.1C34.6 16.1 22.6 24.7 12.4 36" stroke="#0f1112" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="accordion__body">
+          <div class="accordion__body-inner">
+            <p>For custom sites, we recommend Vercel, Netlify or Cloudflare Pages. For WordPress, we use Kinsta or WP Engine. We can set up hosting in your name so you always own it.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <div class="accordion__header" onclick="toggleAcc(this)">
+          <span>What about SEO?</span>
+          <svg class="accordion__arrow" viewBox="0 0 37 38" fill="none">
+            <path d="M11.2 2C25.5 14 31.7 15.1 34.4 16C34.4 16.1 34.4 16.1 34.4 16.1C16.9 18.2 16.2 18.4 1.5 19" stroke="#0f1112" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M34.6 16.1C34.6 16.1 22.6 24.7 12.4 36" stroke="#0f1112" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="accordion__body">
+          <div class="accordion__body-inner">
+            <p>Every site we build has technical SEO baked in — clean HTML, semantic markup, schema, fast loads, and a sensible URL structure. For ongoing keyword and content SEO, we partner with specialist agencies.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="container">
+    <div class="contact__grid">
+      <div>
+        <h2 class="contact__heading">Got a build in mind?</h2>
+        <p style="margin-top: 1.5rem; font-size: 1.1rem; line-height: 1.55; max-width: 30rem;">
+          A few lines about your business and what's on the brief. We'll come back with a starting scope and a ballpark cost.
+        </p>
+      </div>
+      <div>
+        <form class="contact__form" onsubmit="event.preventDefault(); alert('Form submitted — in production this would email you directly.');">
+          <label for="name">Your name</label>
+          <input id="name" type="text" placeholder="Jane Smith" required />
+          <label for="email">Email address</label>
+          <input id="email" type="email" placeholder="jane@brand.com" required />
+          <label for="msg">What kind of site?</label>
+          <textarea id="msg" rows="2" placeholder="New build, redesign, Shopify migration..."></textarea>
+          <button type="submit" class="btn" style="margin-top: 1.5rem;">Send it through
+            <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <h2 class="footer__heading">Let's work<br><span class="underlined"><em>together</em><svg viewBox="0 0 200 16" preserveAspectRatio="none"><path d="M2 10 Q 50 2, 100 8 T 198 6"/></svg></span></h2>
+        <a href="../contact.html" class="btn btn--cream">Say hello
+          <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="footer__col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="media.html">Media</a></li>
+          <li><a href="production.html">Production</a></li>
+          <li><a href="web-development.html">Web Development</a></li>
+          <li><a href="../services.html">All services</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Work</h4>
+        <ul>
+          <li><a href="../work.html">Case studies</a></li>
+          <li><a href="../work/kentaur.html">Kentaur Australia</a></li>
+          <li><a href="../work/grow-innovate.html">Grow Innovate</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Oleo</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>Oleo · Midland, Western Australia · 2026</span>
+      <span>hello@oleocreative.com.au</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
