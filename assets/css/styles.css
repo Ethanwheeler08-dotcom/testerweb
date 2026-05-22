@@ -627,9 +627,9 @@ a { color: inherit; text-decoration: none; }
 }
 .logo-strip__label {
   text-align: center;
-  font-family: var(--font-mono);
+  font-family: 'Inter', var(--font-body);
   font-size: 0.72rem;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   opacity: 0.55;
@@ -1584,10 +1584,10 @@ footer.footer {
 .footer__bottom,
 .logo-strip__item,
 .footer__col h4 {
-  font-family: var(--font-mono);
-  font-weight: 400;
+  font-family: 'Inter', var(--font-body);
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   font-style: normal;
 }
 .section__eyebrow,
@@ -1614,13 +1614,14 @@ footer.footer {
 }
 .footer__col h4 { opacity: 0.45; margin-bottom: 1.5rem; }
 
-/* Logo strip rendered like an editorial marquee, not a brand parade */
+/* Logo strip items (kept for any future reuse) */
 .logo-strip__item {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  opacity: 0.5;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  opacity: 0.55;
+  font-weight: 400;
 }
 .logo-strip__item span.brand-accent {
   color: var(--blue);
