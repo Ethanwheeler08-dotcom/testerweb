@@ -305,28 +305,131 @@ a { color: inherit; text-decoration: none; }
   border-radius: 0 3rem 3rem 3rem;
   overflow: hidden;
   background: var(--ink);
+  isolation: isolate;
 }
-.hero__visual-inner {
+.hero__visual-bg {
   position: absolute;
   inset: 0;
+  z-index: 0;
   background:
-    radial-gradient(circle at 30% 20%, rgba(93, 113, 255, 0.4) 0%, transparent 50%),
-    radial-gradient(circle at 75% 75%, rgba(217, 105, 53, 0.3) 0%, transparent 55%),
-    linear-gradient(135deg, var(--ink) 0%, var(--ink-soft) 100%);
+    radial-gradient(circle at 28% 25%, rgba(93, 113, 255, 0.32) 0%, transparent 55%),
+    radial-gradient(circle at 78% 80%, rgba(217, 105, 53, 0.15) 0%, transparent 55%),
+    linear-gradient(160deg, var(--ink) 0%, var(--ink-soft) 100%);
 }
-.hero__visual-grid {
+.hero__visual-fade {
+  /* Sits in front of bubbles, behind stats — fades the bottom area to ink
+     so bubbles drifting near the stats don't compete with the type. */
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 38%;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    var(--ink) 8%,
+    rgba(15, 17, 18, 0.55) 45%,
+    transparent 100%
+  );
+}
+.hero__bubble-field {
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(232, 226, 216, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(232, 226, 216, 0.05) 1px, transparent 1px);
-  background-size: 40px 40px;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
 }
+
+/* Each "pop track" spans the visual area vertically. The track translates
+   from translateY(8%) up to translateY(-92%); the bubble sits at the
+   track's bottom and the star sits in the same spot but only becomes
+   visible when the track is near the top, giving the illusion that the
+   bubble pops INTO a star at the top of its rise. */
+.hero__pop-track {
+  position: absolute;
+  left: var(--x);
+  top: 0;
+  bottom: 0;
+  width: 0;
+  pointer-events: none;
+  animation: popTrack var(--dur) cubic-bezier(0.5, 0, 0.55, 1) var(--delay) infinite;
+  will-change: transform;
+}
+@keyframes popTrack {
+  0%   { transform: translate3d(0, 12%, 0); }
+  78%  { transform: translate3d(0, -88%, 0); }
+  100% { transform: translate3d(0, -88%, 0); }
+}
+
+.hero__bubble {
+  position: absolute;
+  bottom: 0;
+  left: calc(var(--size) / -2);
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle at 32% 28%,
+      rgba(255, 255, 255, 0.65) 0%,
+      rgba(180, 192, 255, 0.55) 22%,
+      rgba(93, 113, 255, 0.95) 65%,
+      rgba(69, 85, 224, 1) 100%
+    );
+  box-shadow:
+    0 0 16px rgba(93, 113, 255, 0.45),
+    inset 0 -4px 8px rgba(15, 17, 18, 0.22),
+    inset 0 2px 3px rgba(255, 255, 255, 0.25);
+  opacity: 0;
+  transform: scale(0.6);
+  animation: bubbleFade var(--dur) ease-out var(--delay) infinite;
+  will-change: transform, opacity;
+}
+@keyframes bubbleFade {
+  0%   { opacity: 0; transform: scale(0.55); }
+  10%  { opacity: 1; transform: scale(1); }
+  72%  { opacity: 1; transform: scale(1); }
+  76%  { opacity: 0.95; transform: scale(1.28); }
+  79%  { opacity: 0; transform: scale(0.25); }
+  100% { opacity: 0; transform: scale(0.25); }
+}
+
+.hero__star {
+  position: absolute;
+  bottom: calc(var(--size) / -2.2);
+  left: calc(var(--size) * -0.6);
+  width: calc(var(--size) * 1.45);
+  height: calc(var(--size) * 1.45);
+  color: var(--orange);
+  opacity: 0;
+  transform: scale(0.2);
+  animation: starBurst var(--dur) cubic-bezier(0.34, 1.56, 0.64, 1) var(--delay) infinite;
+  will-change: transform, opacity;
+}
+.hero__star svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  fill: currentColor;
+  filter: drop-shadow(0 0 8px rgba(217, 105, 53, 0.55));
+}
+@keyframes starBurst {
+  0%, 76%  { opacity: 0; transform: scale(0.2) rotate(0); }
+  80%      { opacity: 1; transform: scale(1.3) rotate(22deg); }
+  85%      { opacity: 0.9; transform: scale(0.95) rotate(14deg); }
+  92%      { opacity: 0.5; transform: scale(1.05) translateY(-10px) rotate(6deg); }
+  100%     { opacity: 0; transform: scale(0.85) translateY(-16px) rotate(0); }
+}
+
+/* Stats overlay — sits above the bubble field and fade, with a soft text
+   shadow so the cream type stays crisp against the moving backdrop. */
 .hero__stats {
   position: absolute;
   bottom: 2.5rem;
   left: 2.5rem;
   right: 2.5rem;
+  z-index: 3;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
@@ -339,43 +442,37 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: -0.03em;
   line-height: 1;
   margin-bottom: 0.4rem;
+  text-shadow: 0 2px 14px rgba(15, 17, 18, 0.45);
 }
 .hero__stat-label {
   font-size: 0.85rem;
-  opacity: 0.7;
+  opacity: 0.78;
   letter-spacing: 0.02em;
   line-height: 1.3;
+  text-shadow: 0 1px 8px rgba(15, 17, 18, 0.5);
 }
-.hero__floating {
-  position: absolute;
-  top: 12%;
-  left: 8%;
-  width: 28%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: var(--blue);
-  filter: blur(2px);
-  opacity: 0.85;
-  animation: floatCircle 6s ease-in-out infinite;
+
+/* Reduced motion: freeze each bubble at its --static-y position with a
+   visible opacity, and hide stars. The animation loop is dropped entirely;
+   the field becomes a still composition of scattered blue bubbles. */
+@media (prefers-reduced-motion: reduce) {
+  .hero__pop-track {
+    animation: none;
+    transform: translate3d(0, var(--static-y, -50%), 0);
+  }
+  .hero__bubble {
+    animation: none;
+    opacity: var(--static-opacity, 0.7);
+    transform: scale(1);
+  }
+  .hero__star { display: none; }
 }
-.hero__floating-2 {
-  position: absolute;
-  top: 45%;
-  right: 12%;
-  width: 14%;
-  aspect-ratio: 1;
-  background: var(--orange);
-  border-radius: 0 1rem 1rem 1rem;
-  transform: rotate(-15deg);
-  animation: float 7s ease-in-out infinite 1s;
-}
-@keyframes float {
-  0%, 100% { transform: translateY(0) rotate(-15deg); }
-  50% { transform: translateY(-15px) rotate(-10deg); }
-}
-@keyframes floatCircle {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+
+/* Slightly tighter scale on mobile so bubbles don't overwhelm the panel
+   when the visual block is narrower. */
+@media (max-width: 900px) {
+  .hero__visual-fade { height: 32%; }
+  .hero__bubble { transform-origin: center; }
 }
 
 /* hero__scribble removed — was reading as disconnected next to the CTAs */

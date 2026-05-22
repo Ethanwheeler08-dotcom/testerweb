@@ -47,10 +47,30 @@
         </div>
       </div>
       <div class="hero__visual">
-        <div class="hero__visual-inner"></div>
-        <div class="hero__visual-grid"></div>
-        <div class="hero__floating"></div>
-        <div class="hero__floating-2"></div>
+        <div class="hero__visual-bg"></div>
+        <!-- Bubble field — CSS-animated pop tracks rise through the panel,
+             each blue bubble popping into an orange spark near the top.
+             aria-hidden because it's purely decorative; reduced-motion users
+             see a still composition instead (handled in CSS). -->
+        <div class="hero__bubble-field" aria-hidden="true">
+          <span class="hero__pop-track" style="--x: 8%;  --size: 26px; --dur: 7.5s;  --delay: 0s;    --static-y: -62%; --static-opacity: 0.7;"><span class="hero__bubble"></span><span class="hero__star"><svg viewBox="0 0 24 24"><path d="M12 0 L 13.5 10.5 L 24 12 L 13.5 13.5 L 12 24 L 10.5 13.5 L 0 12 L 10.5 10.5 Z"/></svg></span></span>
+          <span class="hero__pop-track" style="--x: 18%; --size: 20px; --dur: 9s;    --delay: 1.4s;  --static-y: -42%; --static-opacity: 0.55;"><span class="hero__bubble"></span><span class="hero__star"><svg viewBox="0 0 24 24"><path d="M12 0 L 13.5 10.5 L 24 12 L 13.5 13.5 L 12 24 L 10.5 13.5 L 0 12 L 10.5 10.5 Z"/></svg></span></span>
+          <span class="hero__pop-track" style="--x: 28%; --size: 36px; --dur: 8.2s;  --delay: 3.1s;  --static-y: -78%; --static-opacity: 0.5;"><span class="hero__bubble"></span><span class="hero__star"><svg viewBox="0 0 24 24"><path d="M12 0 L 13.5 10.5 L 24 12 L 13.5 13.5 L 12 24 L 10.5 13.5 L 0 12 L 10.5 10.5 Z"/></svg></span></span>
+          <span class="hero__pop-track" style="--x: 38%; --size: 18px; --dur: 6.5s;  --delay: 0.7s;  --static-y: -25%; --static-opacity: 0.85;"><span class="hero__bubble"></span><span class="hero__star"><svg viewBox="0 0 24 24"><path d="M12 0 L 13.5 10.5 L 24 12 L 13.5 13.5 L 12 24 L 10.5 13.5 L 0 12 L 10.5 10.5 Z"/></svg></span></span>
+          <span class="hero__pop-track" style="--x: 48%; --size: 30px; --dur: 10s;   --delay: 4.2s;  --static-y: -55%; --static-opacity: 0.65;"><span class="hero__bubble"></span><span class="hero__star"><svg viewBox="0 0 24 24"><path d="M12 0 L 13.5 10.5 L 24 12 L 13.5 13.5 L 12 24 L 10.5 13.5 L 0 12 L 10.5 10.5 Z"/></svg></span></span>
+          <span class="hero__pop-track" style="--x: 58%; --size: 24px; --dur: 7.5s;  --delay: 2.3s;  --static-y: -70%; --static-opacity: 0.6;"><span class="hero__bubble"></span><span class="hero__star"><svg viewBox="0 0 24 24"><path d="M12 0 L 13.5 10.5 L 24 12 L 13.5 13.5 L 12 24 L 10.5 13.5 L 0 12 L 10.5 10.5 Z"/></svg></span></span>
+          <span class="hero__pop-track" style="--x: 68%; --size: 32px; --dur: 8.6s;  --delay: 0.5s;  --static-y: -50%; --static-opacity: 0.7;"><span class="hero__bubble"></span><span class="hero__star"><svg viewBox="0 0 24 24"><path d="M12 0 L 13.5 10.5 L 24 12 L 13.5 13.5 L 12 24 L 10.5 13.5 L 0 12 L 10.5 10.5 Z"/></svg></span></span>
+          <span class="hero__pop-track" style="--x: 78%; --size: 22px; --dur: 9.2s;  --delay: 3.6s;  --static-y: -82%; --static-opacity: 0.45;"><span class="hero__bubble"></span><span class="hero__star"><svg viewBox="0 0 24 24"><path d="M12 0 L 13.5 10.5 L 24 12 L 13.5 13.5 L 12 24 L 10.5 13.5 L 0 12 L 10.5 10.5 Z"/></svg></span></span>
+          <span class="hero__pop-track" style="--x: 88%; --size: 28px; --dur: 7.2s;  --delay: 1.8s;  --static-y: -38%; --static-opacity: 0.75;"><span class="hero__bubble"></span><span class="hero__star"><svg viewBox="0 0 24 24"><path d="M12 0 L 13.5 10.5 L 24 12 L 13.5 13.5 L 12 24 L 10.5 13.5 L 0 12 L 10.5 10.5 Z"/></svg></span></span>
+          <span class="hero__pop-track" style="--x: 13%; --size: 14px; --dur: 6s;    --delay: 4.5s;  --static-y: -33%; --static-opacity: 0.7;"><span class="hero__bubble"></span><span class="hero__star"><svg viewBox="0 0 24 24"><path d="M12 0 L 13.5 10.5 L 24 12 L 13.5 13.5 L 12 24 L 10.5 13.5 L 0 12 L 10.5 10.5 Z"/></svg></span></span>
+          <span class="hero__pop-track" style="--x: 33%; --size: 22px; --dur: 9.6s;  --delay: 2.9s;  --static-y: -68%; --static-opacity: 0.55;"><span class="hero__bubble"></span><span class="hero__star"><svg viewBox="0 0 24 24"><path d="M12 0 L 13.5 10.5 L 24 12 L 13.5 13.5 L 12 24 L 10.5 13.5 L 0 12 L 10.5 10.5 Z"/></svg></span></span>
+          <span class="hero__pop-track" style="--x: 53%; --size: 16px; --dur: 6.8s;  --delay: 5.2s;  --static-y: -28%; --static-opacity: 0.8;"><span class="hero__bubble"></span><span class="hero__star"><svg viewBox="0 0 24 24"><path d="M12 0 L 13.5 10.5 L 24 12 L 13.5 13.5 L 12 24 L 10.5 13.5 L 0 12 L 10.5 10.5 Z"/></svg></span></span>
+          <span class="hero__pop-track" style="--x: 73%; --size: 28px; --dur: 8.4s;  --delay: 4.1s;  --static-y: -75%; --static-opacity: 0.5;"><span class="hero__bubble"></span><span class="hero__star"><svg viewBox="0 0 24 24"><path d="M12 0 L 13.5 10.5 L 24 12 L 13.5 13.5 L 12 24 L 10.5 13.5 L 0 12 L 10.5 10.5 Z"/></svg></span></span>
+          <span class="hero__pop-track" style="--x: 83%; --size: 18px; --dur: 10.5s; --delay: 0.3s;  --static-y: -48%; --static-opacity: 0.65;"><span class="hero__bubble"></span><span class="hero__star"><svg viewBox="0 0 24 24"><path d="M12 0 L 13.5 10.5 L 24 12 L 13.5 13.5 L 12 24 L 10.5 13.5 L 0 12 L 10.5 10.5 Z"/></svg></span></span>
+          <span class="hero__pop-track" style="--x: 23%; --size: 32px; --dur: 11s;   --delay: 5.5s;  --static-y: -88%; --static-opacity: 0.4;"><span class="hero__bubble"></span><span class="hero__star"><svg viewBox="0 0 24 24"><path d="M12 0 L 13.5 10.5 L 24 12 L 13.5 13.5 L 12 24 L 10.5 13.5 L 0 12 L 10.5 10.5 Z"/></svg></span></span>
+          <span class="hero__pop-track" style="--x: 63%; --size: 22px; --dur: 9s;    --delay: 0.9s;  --static-y: -58%; --static-opacity: 0.6;"><span class="hero__bubble"></span><span class="hero__star"><svg viewBox="0 0 24 24"><path d="M12 0 L 13.5 10.5 L 24 12 L 13.5 13.5 L 12 24 L 10.5 13.5 L 0 12 L 10.5 10.5 Z"/></svg></span></span>
+        </div>
+        <div class="hero__visual-fade"></div>
         <div class="hero__stats">
           <div>
             <div class="hero__stat-number">4.2×</div>
