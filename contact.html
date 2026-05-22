@@ -137,9 +137,15 @@
           <p style="font-size: 1rem; line-height: 1.55; opacity: 0.85; margin-bottom: 1.5rem;">
             We'll learn about your brand and current setup, share where we'd focus first, and you can decide if we're a fit. No pressure, no slide deck.
           </p>
-          <!-- Calendly inline widget begin -->
-          <div class="calendly-inline-widget" data-url="https://calendly.com/admin-oleo/30min" style="min-width:320px;height:720px;"></div>
-          <!-- Calendly inline widget end -->
+          <!-- Calendly inline widget. URL params blend it into the site palette:
+               hide_event_type_details=1  drops the event header above the calendar
+               hide_gdpr_banner=1         hides the cookie banner if shown
+               background_color=e8e2d8    matches site cream
+               text_color=0f1112          matches site ink
+               primary_color=5d71ff       matches brand blue -->
+          <div class="calendly-inline-widget"
+               data-url="https://calendly.com/admin-oleo/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=e8e2d8&text_color=0f1112&primary_color=5d71ff"
+               style="min-width:320px;height:680px;"></div>
         </div>
       </div>
     </div>

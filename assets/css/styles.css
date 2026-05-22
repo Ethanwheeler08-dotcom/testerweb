@@ -1095,12 +1095,27 @@ a { color: inherit; text-decoration: none; }
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
-/* Calendly inline widget container */
+/* Calendly inline widget container — frame the iframe in a cream box that
+   matches the surrounding card so the embed reads as part of the page.
+   The Calendly iframe itself is themed via URL params (background_color,
+   text_color, primary_color, hide_event_type_details, hide_gdpr_banner). */
 .calendly-inline-widget {
   margin-top: 1.5rem;
+  background: var(--cream);
+  border: 1px solid var(--line);
   border-radius: 4px;
   overflow: hidden;
-  background: var(--cream-light);
+  /* Calendly's iframe is loaded by widget.js into this container. Forcing a
+     transparent iframe gives the cream background underneath a chance to
+     show through any white gutters Calendly leaves at the edges. */
+}
+.calendly-inline-widget iframe {
+  background: transparent !important;
+  border: 0;
+  display: block;
+}
+@media (max-width: 700px) {
+  .calendly-inline-widget { min-height: 760px; }
 }
 
 /* Contact form, status messages */
