@@ -2,6 +2,21 @@
    OLEO — Shared Styles
    ============================================ */
 
+@font-face {
+  font-family: 'Bogart';
+  src: url('../fonts/Bogart-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Mazzard';
+  src: url('../fonts/Mazzard-L-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --cream: #e8e2d8;
   --cream-light: #f0ebe2;
@@ -13,9 +28,9 @@
   --muted: #6b6b66;
   --line: rgba(15, 17, 18, 0.12);
 
-  --font-display: 'Fraunces', 'Times New Roman', serif;
-  --font-body: 'Inter', -apple-system, sans-serif;
-  --font-script: 'Caveat', cursive;
+  --font-display: 'Bogart', 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'Mazzard', -apple-system, 'Inter', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'Menlo', 'Consolas', monospace;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -26,8 +41,9 @@ body {
   background: var(--cream);
   color: var(--ink);
   font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.5;
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -1480,3 +1496,210 @@ footer.footer {
   .cs-section__title { position: static; }
   .accordion__body-inner ul { columns: 1; }
 }
+
+/* ============================================
+   FORTEM PASS — editorial restraint overlay
+   ============================================ */
+
+/* Headings — Bogart, no synthesised italic (font is Regular-only). */
+.hero h1,
+.hero__subtitle,
+.section__title,
+.contact__heading,
+.footer__heading,
+.footer__heading em,
+.diff-card__title,
+.case__title,
+.case__title em,
+.case__visual-mark,
+.cs-banner h1,
+.cs-banner h1 em,
+.cs-section__title,
+.cs-result__num,
+.cs-next__title,
+.cs-next__title em,
+.case__visual-stat .num,
+.work-card__title,
+.work-card__stat,
+.team-card h3,
+.team-card__avatar,
+.value-card h3,
+.value-card__num,
+.process__step h3,
+.process__num,
+.calendar-embed__heading,
+.page-hero h1,
+.hero h1 .underlined,
+.section__title .underlined,
+.contact__heading .underlined,
+.footer__heading .underlined,
+.page-hero h1 .underlined,
+.cs-meta__value,
+.contact-details h4,
+.why__item h3 {
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 400;
+  font-synthesis: none;
+}
+
+/* Letter-spacing dial-in for the new face */
+.hero h1, .page-hero h1, .section__title,
+.cs-banner h1, .contact__heading {
+  letter-spacing: -0.02em;
+}
+
+/* Mono caption / eyebrow system — the editorial clash against Bogart */
+.section__eyebrow,
+.page-hero__eyebrow,
+.diff-card__eyebrow,
+.case__eyebrow,
+.cs-banner__tag,
+.cs-meta__label,
+.work-card__tag,
+.cs-sample__label,
+.cs-next__eyebrow,
+.team-card__role,
+.case__visual-tag,
+.case__visual-stat .lbl,
+.work-card__stat small,
+.cs-result__label,
+.hero__stat-label,
+.footer__bottom,
+.logo-strip__item,
+.footer__col h4 {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-style: normal;
+}
+.section__eyebrow,
+.page-hero__eyebrow,
+.diff-card__eyebrow,
+.case__eyebrow,
+.cs-banner__tag,
+.cs-next__eyebrow {
+  font-size: 0.72rem;
+}
+.cs-meta__label,
+.work-card__tag,
+.cs-sample__label,
+.team-card__role,
+.case__visual-tag,
+.case__visual-stat .lbl,
+.work-card__stat small,
+.cs-result__label,
+.hero__stat-label,
+.footer__bottom,
+.footer__col h4 {
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+.footer__col h4 { opacity: 0.45; margin-bottom: 1.5rem; }
+
+/* Logo strip rendered like an editorial marquee, not a brand parade */
+.logo-strip__item {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+.logo-strip__item span.brand-accent {
+  color: var(--blue);
+  margin-right: 0.5rem;
+}
+
+/* Slightly tighter body leading for Mazzard Light at content sizes */
+.hero__copy, .section__intro, .case__copy, .cs-banner__copy,
+.cs-section__copy p, .cs-section__copy ul li,
+.page-hero__copy, .two-col__copy p,
+.diff-footer__copy, .team-card p, .value-card p,
+.why__item p, .process__step p, .deliverables__item p,
+.accordion__body-inner p, .accordion__body-inner ul li {
+  font-family: var(--font-body);
+  font-weight: 300;
+}
+
+/* Sharper corners — fortem-style restraint */
+.diff-card,
+.work-card,
+.case__visual,
+.hero__visual,
+.cs-result,
+.cs-sample,
+.cs-next__inner,
+.calendar-embed,
+.calendar-embed__placeholder,
+.team-card,
+.value-card,
+.cs-banner {
+  border-radius: 4px;
+}
+.cs-banner { border-radius: 0 0 4px 4px; }
+
+/* Refine the form input typography to use Bogart instead of italic */
+.contact__form input,
+.contact__form textarea,
+.contact__form select {
+  font-family: var(--font-display);
+  font-style: normal;
+  font-size: 1.35rem;
+}
+
+/* Section heading subtle spacing */
+.section__title { margin-bottom: 3rem; }
+
+/* Hero stat numbers: cleaner spacing */
+.hero__stat-number,
+.cs-result__num,
+.work-card__stat,
+.case__visual-stat .num,
+.cs-meta__value {
+  letter-spacing: -0.015em;
+}
+
+/* Logo: cleaner, smaller dot for the new face */
+.logo {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+
+/* Nav links in body face — quieter so headings can sing */
+.nav__menu a {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.92rem;
+  letter-spacing: 0.01em;
+}
+
+/* Mono on buttons — small tracking adjustment */
+.btn { letter-spacing: 0.01em; }
+
+/* Page hero spacing */
+.page-hero__eyebrow { margin-bottom: 1.5rem; }
+.page-hero h1 { margin-bottom: 1.75rem; }
+
+/* Tighten case-study meta labels */
+.cs-meta__value { font-size: 1.15rem; font-weight: 400; }
+.cs-meta__label { margin-bottom: 0.6rem; opacity: 0.55; }
+
+/* Diff card title — bigger, no italic */
+.diff-card__title {
+  font-size: 1.95rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+/* Subtle border on case visuals so dark blocks read as "tiles" not floating colour */
+.case__visual,
+.work-card,
+.hero__visual,
+.cs-banner {
+  border: 1px solid rgba(15, 17, 18, 0.08);
+}
+.section--dark .case__visual,
+.cs-banner { border-color: rgba(232, 226, 216, 0.08); }
+
