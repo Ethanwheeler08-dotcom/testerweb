@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 110" role="img" aria-label="Oleo">
+  <!-- First O — solid filled circle -->
+  <circle cx="55" cy="55" r="48" fill="#0f1112"/>
+
+  <!-- L -->
+  <path d="M118 8 L 118 102 L 178 102 L 178 84 L 138 84 L 138 8 Z" fill="#0f1112"/>
+
+  <!-- E -->
+  <path d="M186 8 L 186 102 L 246 102 L 246 84 L 206 84 L 206 64 L 240 64 L 240 48 L 206 48 L 206 26 L 246 26 L 246 8 Z" fill="#0f1112"/>
+
+  <!-- Second O — solid circle with two horizontal slits cut from the left
+       at the height of the E's middle and bottom bars, making the letters
+       visually interlock. Slit fill matches the cream page background. -->
+  <circle cx="303" cy="55" r="48" fill="#0f1112"/>
+  <rect x="255" y="48" width="22" height="16" fill="#e8e2d8"/>
+  <rect x="255" y="84" width="22" height="18" fill="#e8e2d8"/>
+
+  <!-- Blue motion sparks at the top-right of the second O -->
+  <g stroke="#5d71ff" stroke-width="3.4" stroke-linecap="round" fill="none">
+    <line x1="338" y1="18" x2="343" y2="6"/>
+    <line x1="348" y1="26" x2="357" y2="20"/>
+    <line x1="350" y1="40" x2="358" y2="40"/>
+  </g>
+</svg>

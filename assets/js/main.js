@@ -170,3 +170,109 @@ function initCustomSelect(root) {
 }
 
 document.querySelectorAll('.custom-select').forEach(initCustomSelect);
+
+/* ============================================
+   Custom cursor — small trailing dot, desktop only
+   ============================================ */
+(function () {
+  const supportsHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!supportsHover || reducedMotion) return;
+
+  const cursor = document.createElement('div');
+  cursor.className = 'cursor';
+  cursor.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(cursor);
+  document.body.classList.add('has-custom-cursor');
+
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let cursorX = mouseX;
+  let cursorY = mouseY;
+  let hasMoved = false;
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    if (!hasMoved) {
+      hasMoved = true;
+      cursor.classList.add('is-visible');
+    }
+  });
+  window.addEventListener('mouseleave', () => cursor.classList.remove('is-visible'));
+  window.addEventListener('mouseenter', () => {
+    if (hasMoved) cursor.classList.add('is-visible');
+  });
+
+  const EASE = 0.18;
+  function tick() {
+    cursorX += (mouseX - cursorX) * EASE;
+    cursorY += (mouseY - cursorY) * EASE;
+    cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+
+  const HOVER_TARGETS = [
+    'a', 'button', '[role="button"]',
+    '.btn', '.work-card', '.diff-card',
+    '.case__link', '.why__link',
+    '.custom-select__trigger', '.custom-select__option',
+    '.accordion__header', '.nav__toggle'
+  ].join(',');
+
+  document.addEventListener('mouseover', (e) => {
+    if (e.target.closest && e.target.closest(HOVER_TARGETS)) {
+      cursor.classList.add('is-hover');
+    }
+    // Adapt color on dark sections so the cursor stays visible
+    const onDark = e.target.closest && e.target.closest('.section--dark, .cs-banner, footer.footer, .calendar-embed__placeholder');
+    if (onDark) cursor.classList.add('is-dark');
+  });
+  document.addEventListener('mouseout', (e) => {
+    if (e.target.closest && e.target.closest(HOVER_TARGETS)) {
+      cursor.classList.remove('is-hover');
+    }
+    const onDark = e.target.closest && e.target.closest('.section--dark, .cs-banner, footer.footer, .calendar-embed__placeholder');
+    if (onDark) cursor.classList.remove('is-dark');
+  });
+})();
+
+/* ============================================
+   Lenis smooth scroll (with anchor support, mobile-safe)
+   ============================================ */
+(function () {
+  if (typeof window.Lenis !== 'function') return;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reducedMotion) return;
+
+  const lenis = new Lenis({
+    duration: 1.1,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    smoothWheel: true,
+    smoothTouch: false, // native scroll on touch — keeps mobile snappy
+    wheelMultiplier: 1,
+    touchMultiplier: 2,
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+
+  // Route in-page anchor clicks through Lenis so they animate smoothly
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest && e.target.closest('a[href^="#"]');
+    if (!link) return;
+    const href = link.getAttribute('href');
+    if (!href || href === '#' || href.length < 2) return;
+    const target = document.querySelector(href);
+    if (!target) return;
+    e.preventDefault();
+    lenis.scrollTo(target, { offset: -16 });
+  });
+
+  // Expose for other modules / debugging
+  window.__lenis = lenis;
+})();
