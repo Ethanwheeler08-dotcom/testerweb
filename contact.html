@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Contact — Oleo</title>
-<meta name="description" content="Get in touch with Oleo. Book a 30-minute intro call, email, or message us — and we'll come back to you within a day." />
+<meta name="description" content="Get in touch with Oleo. Book a 30-minute intro call, email, or message us, and we'll come back to you within a day." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
@@ -19,6 +19,7 @@
       <a href="services.html">Services</a>
       <a href="work.html">Work</a>
       <a href="about.html">About</a>
+        <a href="the-spark.html" class="nav__spark">The Spark<span class="nav__spark-flair" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M14 2 L 6 14 L 11 14 L 9 22 L 18 9 L 13 9 L 14 2 Z"/></svg></span></a>
         <a href="the-pop.html" class="nav__pop">The Pop<span class="nav__pop-flair" aria-hidden="true"><svg viewBox="0 0 30 30" fill="none"><line x1="20" y1="6" x2="23" y2="1"/><line x1="25" y1="11" x2="29" y2="9"/><line x1="26" y1="17" x2="30" y2="17"/></svg></span></a>
       <a href="contact.html" class="btn">Book a call
         <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -42,7 +43,7 @@
   <div class="container">
     <div class="contact__grid" style="align-items: start;">
       <div>
-        <form class="contact__form" onsubmit="event.preventDefault(); alert('Form submitted — in production this would email you directly.');">
+        <form class="contact__form" onsubmit="event.preventDefault(); alert('Form submitted, in production this would email you directly.');">
           <label for="name">Your name</label>
           <input id="name" type="text" placeholder="Jane Smith" required />
 
@@ -55,11 +56,11 @@
           <label id="service-label">What are you after?</label>
           <div class="custom-select" data-name="service">
             <button type="button" class="custom-select__trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="service-label">
-              <span class="custom-select__value">Not sure yet — let's chat</span>
+              <span class="custom-select__value">Not sure yet, let's chat</span>
               <svg class="custom-select__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
             <ul class="custom-select__menu" role="listbox" aria-labelledby="service-label" tabindex="-1">
-              <li class="custom-select__option selected" role="option" tabindex="-1" aria-selected="true" data-value="not-sure">Not sure yet — let's chat</li>
+              <li class="custom-select__option selected" role="option" tabindex="-1" aria-selected="true" data-value="not-sure">Not sure yet, let's chat</li>
               <li class="custom-select__option" role="option" tabindex="-1" aria-selected="false" data-value="media">Media (paid ads)</li>
               <li class="custom-select__option" role="option" tabindex="-1" aria-selected="false" data-value="production">Production (photo / video)</li>
               <li class="custom-select__option" role="option" tabindex="-1" aria-selected="false" data-value="web">Web development</li>
@@ -93,16 +94,19 @@
             <a href="mailto:admin@oleo.com.au">admin@oleo.com.au</a>
           </div>
           <div>
-            <h4>Call</h4>
-            <a href="tel:+61400000000">+61 400 000 000</a>
-          </div>
-          <div>
             <h4>Studio</h4>
             <p>Perth<br>Western Australia<br>6000</p>
           </div>
           <div>
             <h4>Hours</h4>
-            <p>Mon–Fri<br>8.30am – 5.30pm AWST</p>
+            <p>8:00am to 6:00pm,<br>Mon to Fri</p>
+          </div>
+          <!-- Phone / Instagram / LinkedIn intentionally hidden for now.
+               Re-enable by uncommenting the blocks below. -->
+          <!--
+          <div>
+            <h4>Call</h4>
+            <a href="tel:+61400000000">+61 400 000 000</a>
           </div>
           <div>
             <h4>Instagram</h4>
@@ -112,6 +116,7 @@
             <h4>LinkedIn</h4>
             <a href="#">/company/oleo-creative</a>
           </div>
+          -->
         </div>
 
         <div class="calendar-embed">
@@ -142,7 +147,7 @@
           A short, focused chat. No discovery deck disguised as a meeting. We'll ask honest questions about where you're at, what you've tried, and where you want to go.
         </p>
         <p style="font-size: 1.15rem; line-height: 1.6; opacity: 0.9;">
-          If we're a fit, you'll have a proposal within a week. If we're not, we'll tell you and — where we can — point you to someone who is.
+          If we're a fit, you'll have a proposal within a week. If we're not, we'll tell you and, where we can, point you to someone who is.
         </p>
       </div>
       <div>
@@ -160,7 +165,7 @@
           <div class="process__step">
             <div class="process__num">03</div>
             <h3>Proposal</h3>
-            <p>A short doc — scope, timeline, cost. No 80-slide pitch decks.</p>
+            <p>A short doc, scope, timeline, cost. No 80-slide pitch decks.</p>
           </div>
           <div class="process__step">
             <div class="process__num">04</div>
@@ -195,8 +200,6 @@
         <h4>Work</h4>
         <ul>
           <li><a href="work.html">Case studies</a></li>
-          <li><a href="work/kentaur.html">Kentaur Australia</a></li>
-          <li><a href="work/grow-innovate.html">Grow Innovate</a></li>
         </ul>
       </div>
       <div class="footer__col">
@@ -204,9 +207,8 @@
         <ul>
           <li><a href="about.html">About</a></li>
           <li><a href="the-pop.html">The Pop</a></li>
+          <li><a href="the-spark.html">The Spark</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="#">Instagram</a></li>
-          <li><a href="#">LinkedIn</a></li>
         </ul>
       </div>
     </div>
