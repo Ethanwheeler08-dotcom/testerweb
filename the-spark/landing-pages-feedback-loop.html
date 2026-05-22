@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Landing pages are a feedback loop, not a brochure — Oleo</title>
+<meta name="description" content="How Oleo structures landing pages so they can be diagnosed, iterated and rebuilt section by section, instead of treated as a static asset." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav__inner">
+    <a href="../index.html" class="logo" aria-label="Oleo home"><img src="../assets/img/oleo-logo.png" alt="Oleo" width="130" height="42"></a>
+    <div class="nav__menu">
+      <a href="../services.html">Services</a>
+      <a href="../work.html">Work</a>
+      <a href="../about.html">About</a>
+      <a href="../the-spark.html" class="nav__spark active">The Spark<span class="nav__spark-flair" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M14 2 L 6 14 L 11 14 L 9 22 L 18 9 L 13 9 L 14 2 Z"/></svg></span></a>
+      <a href="../the-pop.html" class="nav__pop">The Pop<span class="nav__pop-flair" aria-hidden="true"><svg viewBox="0 0 30 30" fill="none"><line x1="20" y1="6" x2="23" y2="1"/><line x1="25" y1="11" x2="29" y2="9"/><line x1="26" y1="17" x2="30" y2="17"/></svg></span></a>
+      <a href="../contact.html#book" class="btn">Book a call
+        <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <button class="nav__toggle" onclick="toggleNav()" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container container--narrow">
+    <a href="../the-spark.html" class="article__back">
+      <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to The Spark
+    </a>
+    <p class="page-hero__eyebrow">The Spark · Web · 8 min read</p>
+    <h1>Landing pages are a <span class="underlined">feedback loop</span>, not a brochure</h1>
+    <p class="page-hero__copy">
+      A walkthrough of how we structure landing pages so they can be diagnosed, iterated and rebuilt section by section, instead of treated as a static asset that's "done" at launch.
+    </p>
+  </div>
+</section>
+
+<article class="article">
+  <div class="container">
+    <div class="article__body">
+      <p>Most landing pages we inherit were built once, signed off in a Figma review, and have barely changed since. They look fine. They convert at whatever number they convert at. Nobody can tell you why that number is the number, and nobody can tell you what would happen if you changed it.</p>
+      <p>The problem isn't usually the page itself. It's the way it was thought about. Treat a landing page like a brochure and you'll keep launching new versions every quarter. Treat it like a feedback loop and you'll change it every fortnight, and the numbers will move with you.</p>
+
+      <h2>Build it in sections that can stand alone</h2>
+      <p>The first decision is structural. Every block on the page — hero, social proof, feature grid, FAQ, pricing, footer CTA — has to be a discrete unit that can be swapped or rewritten without touching the rest. That means no sentence that spans two sections, no styling that depends on the block above it, no copy that only works in the context of the one before.</p>
+      <p>The benefit shows up the first time you want to test the social-proof block. If it's truly modular, the test takes an afternoon. If it's tangled into the rest of the page, the test gets postponed forever.</p>
+
+      <h2>Instrument every section as if it's the one that matters</h2>
+      <p>We add scroll-depth tracking per section, not per page. We tag every CTA with its position in the layout. We record outbound clicks, anchor jumps, accordion opens, video plays, and any other engagement signal the analytics setup can carry. Most of this data will be ignored most of the time. The day you need to find out why conversions dropped, you'll be grateful you have it.</p>
+      <p>The point isn't to surveil the visitor. It's to be able to tell, at a glance, which section is failing — so you know what to rewrite next.</p>
+
+      <h2>Iterate small, ship often</h2>
+      <p>The temptation with landing pages is to redesign the whole thing every time you want to make a change. We resist that. Most weeks we change one block. Sometimes one paragraph in one block. Once a month we'll do something bigger, but only if we have data telling us a specific section is the bottleneck.</p>
+      <p>Small changes get tested faster, ship faster, and produce a much clearer signal. A rewrite of the hero copy is a single variable. A redesign of the whole page is twenty variables, and you'll never know which one actually moved the needle.</p>
+
+      <h2>Treat the diagnosis like a habit, not an event</h2>
+      <p>Every Monday, we look at the same dashboard for every active landing page: source split, scroll-through to mid-page, scroll-through to CTA, conversion rate, return-rate from paid. Nothing fancy. Just the same view, week after week.</p>
+      <p>What we're looking for is movement. A drop in scroll-to-CTA usually means the middle of the page got heavier. A drop in conversion with steady scroll usually means the offer or pricing block needs work. A bounce that's risen without anything else changing is almost always a slow page load.</p>
+      <p>Each of those gets diagnosed with the data we instrumented, fixed with a small change, and shipped within the week. It's not exciting work. But it's the difference between a page that converts at 1.2% and the same page, six months later, converting at 2.8% with the same traffic.</p>
+
+      <h2>The brochure mindset</h2>
+      <p>The reason landing pages get treated like brochures is that brochures are easier. They get printed, distributed, and the conversation moves on. Software doesn't work like that, and neither does paid media. The page is a live system that needs to be tended.</p>
+      <p>If you're building a landing page and the conversation in the brief is about what it should look like, ask one question instead: how will we know whether it's working, and what's the smallest thing we can change when it isn't? Get answers, then build the page around those answers. Everything else gets easier.</p>
+    </div>
+  </div>
+</article>
+
+<section class="section section--dark">
+  <div class="container container--narrow" style="text-align: center;">
+    <p class="cs-next__eyebrow">Need a landing page that actually moves?</p>
+    <h2 class="cs-next__title">Let's <em>build</em> one properly</h2>
+    <p style="font-size: 1.1rem; line-height: 1.6; opacity: 0.85; max-width: 36rem; margin: 1.25rem auto 2rem;">
+      Strategy, design, build and the analytics underneath. Book a quick call and we'll walk you through how we'd structure yours.
+    </p>
+    <a href="../contact.html#book" class="btn">Book a call
+      <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <h2 class="footer__heading">Let's work<br><span class="underlined"><em>together</em><svg viewBox="0 0 200 16" preserveAspectRatio="none"><path d="M2 10 Q 50 2, 100 8 T 198 6"/></svg></span></h2>
+        <a href="../contact.html" class="btn btn--cream">Say hello
+          <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <div class="footer__col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="../services/media.html">Media</a></li>
+          <li><a href="../services/production.html">Production</a></li>
+          <li><a href="../services/web-development.html">Web Development</a></li>
+          <li><a href="../services.html">All services</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Work</h4>
+        <ul>
+          <li><a href="../work.html">Case studies</a></li>
+          <li><a href="../work/equestrian-retailer.html">A WA equestrian retailer</a></li>
+          <li><a href="../work/horticulture-supplier.html">A B2B horticulture supplier</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Oleo</h4>
+        <ul>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../the-pop.html">The Pop</a></li>
+          <li><a href="../the-spark.html">The Spark</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>Oleo · Perth, Western Australia · 2026</span>
+      <span>admin@oleo.com.au</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js" defer></script>
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>
