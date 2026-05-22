@@ -172,6 +172,62 @@ function initCustomSelect(root) {
 document.querySelectorAll('.custom-select').forEach(initCustomSelect);
 
 /* ============================================
+   Contact form, Formspree AJAX submission
+   ============================================ */
+document.querySelectorAll('form[data-formspree]').forEach((form) => {
+  const wrap = form.parentElement;
+  const success = wrap.querySelector('.form-success');
+  const error = wrap.querySelector('.form-error');
+  const btn = form.querySelector('button[type="submit"]');
+  const btnDefault = btn && btn.querySelector('.contact__form-btn-default');
+  const btnSending = btn && btn.querySelector('.contact__form-btn-sending');
+
+  function setSending(state) {
+    if (!btn) return;
+    btn.disabled = state;
+    if (btnDefault && btnSending) {
+      btnDefault.hidden = state;
+      btnSending.hidden = !state;
+    }
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    success && (success.hidden = true);
+    error && (error.hidden = true);
+    setSending(true);
+    try {
+      const res = await fetch(form.action, {
+        method: form.method || 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+      if (res.ok) {
+        form.hidden = true;
+        if (success) {
+          success.hidden = false;
+          success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      } else {
+        let detail = '';
+        try {
+          const data = await res.json();
+          detail = (data.errors || []).map((x) => x.message).join(', ');
+        } catch (_) {}
+        if (error) {
+          if (detail) error.querySelector('p').textContent = detail;
+          error.hidden = false;
+        }
+      }
+    } catch (err) {
+      if (error) error.hidden = false;
+    } finally {
+      setSending(false);
+    }
+  });
+});
+
+/* ============================================
    Custom cursor — small trailing dot, desktop only
    ============================================ */
 (function () {

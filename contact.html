@@ -21,7 +21,7 @@
       <a href="about.html">About</a>
         <a href="the-spark.html" class="nav__spark">The Spark<span class="nav__spark-flair" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M14 2 L 6 14 L 11 14 L 9 22 L 18 9 L 13 9 L 14 2 Z"/></svg></span></a>
         <a href="the-pop.html" class="nav__pop">The Pop<span class="nav__pop-flair" aria-hidden="true"><svg viewBox="0 0 30 30" fill="none"><line x1="20" y1="6" x2="23" y2="1"/><line x1="25" y1="11" x2="29" y2="9"/><line x1="26" y1="17" x2="30" y2="17"/></svg></span></a>
-      <a href="contact.html" class="btn">Book a call
+      <a href="#book" class="btn">Book a call
         <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>
@@ -43,15 +43,17 @@
   <div class="container">
     <div class="contact__grid" style="align-items: start;">
       <div>
-        <form class="contact__form" onsubmit="event.preventDefault(); alert('Form submitted, in production this would email you directly.');">
+        <form class="contact__form" action="https://formspree.io/f/xgoqkgwj" method="POST" data-formspree>
+          <input type="hidden" name="_subject" value="New enquiry from oleo.com.au contact form">
+
           <label for="name">Your name</label>
-          <input id="name" type="text" placeholder="Jane Smith" required />
+          <input id="name" name="name" type="text" placeholder="Jane Smith" required autocomplete="name" />
 
           <label for="email">Email address</label>
-          <input id="email" type="email" placeholder="jane@brand.com" required />
+          <input id="email" name="email" type="email" placeholder="jane@brand.com" required autocomplete="email" />
 
           <label for="company">Company / brand</label>
-          <input id="company" type="text" placeholder="Your business" />
+          <input id="company" name="company" type="text" placeholder="Your business" autocomplete="organization" />
 
           <label id="service-label">What are you after?</label>
           <div class="custom-select" data-name="service">
@@ -60,24 +62,35 @@
               <svg class="custom-select__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
             <ul class="custom-select__menu" role="listbox" aria-labelledby="service-label" tabindex="-1">
-              <li class="custom-select__option selected" role="option" tabindex="-1" aria-selected="true" data-value="not-sure">Not sure yet, let's chat</li>
-              <li class="custom-select__option" role="option" tabindex="-1" aria-selected="false" data-value="media">Media (paid ads)</li>
-              <li class="custom-select__option" role="option" tabindex="-1" aria-selected="false" data-value="production">Production (photo / video)</li>
-              <li class="custom-select__option" role="option" tabindex="-1" aria-selected="false" data-value="web">Web development</li>
-              <li class="custom-select__option" role="option" tabindex="-1" aria-selected="false" data-value="combo">A combination</li>
-              <li class="custom-select__option" role="option" tabindex="-1" aria-selected="false" data-value="partner">Partner / referral enquiry</li>
+              <li class="custom-select__option selected" role="option" tabindex="-1" aria-selected="true" data-value="Not sure yet">Not sure yet, let's chat</li>
+              <li class="custom-select__option" role="option" tabindex="-1" aria-selected="false" data-value="Media (paid ads)">Media (paid ads)</li>
+              <li class="custom-select__option" role="option" tabindex="-1" aria-selected="false" data-value="Production (photo / video)">Production (photo / video)</li>
+              <li class="custom-select__option" role="option" tabindex="-1" aria-selected="false" data-value="Web development">Web development</li>
+              <li class="custom-select__option" role="option" tabindex="-1" aria-selected="false" data-value="A combination">A combination</li>
+              <li class="custom-select__option" role="option" tabindex="-1" aria-selected="false" data-value="Partner / referral enquiry">Partner / referral enquiry</li>
             </ul>
-            <input type="hidden" name="service" value="not-sure">
+            <input type="hidden" name="what-they're-after" value="Not sure yet">
           </div>
 
           <label for="msg">A few lines about what you need</label>
-          <textarea id="msg" rows="3" placeholder="Current setup, biggest challenge, what success looks like"></textarea>
+          <textarea id="msg" name="message" rows="3" placeholder="Current setup, biggest challenge, what success looks like"></textarea>
 
           <button type="submit" class="btn" style="margin-top: 1.5rem;">
-            Send it through
-            <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="contact__form-btn-default">
+              Send it through
+              <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="contact__form-btn-sending" hidden>Sending&hellip;</span>
           </button>
         </form>
+
+        <div class="form-success" role="status" hidden>
+          <h3>Thanks, message received.</h3>
+          <p>We'll be in touch soon, usually within a working day. If it's urgent, drop us a line directly at <a href="mailto:admin@oleo.com.au">admin@oleo.com.au</a>.</p>
+        </div>
+        <div class="form-error" role="alert" hidden>
+          <p>Something went wrong sending that, sorry. Please email us at <a href="mailto:admin@oleo.com.au">admin@oleo.com.au</a> and we'll come back to you straight away.</p>
+        </div>
       </div>
 
       <div>
@@ -119,19 +132,14 @@
           -->
         </div>
 
-        <div class="calendar-embed">
+        <div class="calendar-embed" id="book">
           <h3 class="calendar-embed__heading">Book a 30-minute intro call</h3>
-          <p style="font-size: 1rem; line-height: 1.55; opacity: 0.85;">
+          <p style="font-size: 1rem; line-height: 1.55; opacity: 0.85; margin-bottom: 1.5rem;">
             We'll learn about your brand and current setup, share where we'd focus first, and you can decide if we're a fit. No pressure, no slide deck.
           </p>
-          <div class="calendar-embed__placeholder">
-            <p>Calendar embed</p>
-            <p style="margin-bottom: 0;">Drop a Calendly or Cal.com inline embed in this block.<br>e.g. <code>&lt;div class="calendly-inline-widget" data-url="https://calendly.com/oleocreative/intro"&gt;&lt;/div&gt;</code></p>
-            <a href="#" class="btn btn--cream" style="margin-top: 1.5rem;">
-              Open calendar
-              <svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
+          <!-- Calendly inline widget begin -->
+          <div class="calendly-inline-widget" data-url="https://calendly.com/admin-oleo/30min" style="min-width:320px;height:720px;"></div>
+          <!-- Calendly inline widget end -->
         </div>
       </div>
     </div>
@@ -220,6 +228,7 @@
 </footer>
 
 <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js" defer></script>
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <script src="assets/js/main.js" defer></script>
 </body>
 </html>
