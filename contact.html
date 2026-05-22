@@ -52,15 +52,22 @@
           <label for="company">Company / brand</label>
           <input id="company" type="text" placeholder="Your business" />
 
-          <label for="service">What are you after?</label>
-          <select id="service">
-            <option>Not sure yet — let's chat</option>
-            <option>Media (paid ads)</option>
-            <option>Production (photo / video)</option>
-            <option>Web development</option>
-            <option>A combination</option>
-            <option>Partner / referral enquiry</option>
-          </select>
+          <label id="service-label">What are you after?</label>
+          <div class="custom-select" data-name="service">
+            <button type="button" class="custom-select__trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="service-label">
+              <span class="custom-select__value">Not sure yet — let's chat</span>
+              <svg class="custom-select__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <ul class="custom-select__menu" role="listbox" aria-labelledby="service-label" tabindex="-1">
+              <li class="custom-select__option selected" role="option" tabindex="-1" aria-selected="true" data-value="not-sure">Not sure yet — let's chat</li>
+              <li class="custom-select__option" role="option" tabindex="-1" aria-selected="false" data-value="media">Media (paid ads)</li>
+              <li class="custom-select__option" role="option" tabindex="-1" aria-selected="false" data-value="production">Production (photo / video)</li>
+              <li class="custom-select__option" role="option" tabindex="-1" aria-selected="false" data-value="web">Web development</li>
+              <li class="custom-select__option" role="option" tabindex="-1" aria-selected="false" data-value="combo">A combination</li>
+              <li class="custom-select__option" role="option" tabindex="-1" aria-selected="false" data-value="partner">Partner / referral enquiry</li>
+            </ul>
+            <input type="hidden" name="service" value="not-sure">
+          </div>
 
           <label for="msg">A few lines about what you need</label>
           <textarea id="msg" rows="3" placeholder="Current setup, biggest challenge, what success looks like"></textarea>

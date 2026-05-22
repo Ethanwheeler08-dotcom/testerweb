@@ -159,14 +159,21 @@
           <label for="email">Email address</label>
           <input id="email" type="email" placeholder="jane@brand.com" required />
 
-          <label for="service">What are you after?</label>
-          <select id="service">
-            <option>Not sure yet</option>
-            <option>Media</option>
-            <option>Production</option>
-            <option>Web Development</option>
-            <option>A combination</option>
-          </select>
+          <label id="service-label">What are you after?</label>
+          <div class="custom-select" data-name="service">
+            <button type="button" class="custom-select__trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="service-label">
+              <span class="custom-select__value">Not sure yet</span>
+              <svg class="custom-select__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <ul class="custom-select__menu" role="listbox" aria-labelledby="service-label" tabindex="-1">
+              <li class="custom-select__option selected" role="option" tabindex="-1" aria-selected="true" data-value="not-sure">Not sure yet</li>
+              <li class="custom-select__option" role="option" tabindex="-1" aria-selected="false" data-value="media">Media</li>
+              <li class="custom-select__option" role="option" tabindex="-1" aria-selected="false" data-value="production">Production</li>
+              <li class="custom-select__option" role="option" tabindex="-1" aria-selected="false" data-value="web">Web Development</li>
+              <li class="custom-select__option" role="option" tabindex="-1" aria-selected="false" data-value="combo">A combination</li>
+            </ul>
+            <input type="hidden" name="service" value="not-sure">
+          </div>
 
           <button type="submit" class="btn" style="margin-top: 1.5rem;">
             Send it through
