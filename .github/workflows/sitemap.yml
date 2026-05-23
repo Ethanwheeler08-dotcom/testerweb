@@ -1,0 +1,51 @@
+name: Regenerate sitemap
+
+# Re-run the sitemap generator on every push that touches HTML or the
+# generator itself. Commits the updated sitemap.xml back to the branch
+# (with [skip ci] to avoid re-triggering this workflow).
+
+on:
+  push:
+    branches:
+      - main
+      - 'claude/**'
+    paths:
+      - '**.html'
+      - 'scripts/generate-sitemap.py'
+      - '.github/workflows/sitemap.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sitemap:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Regenerate sitemap.xml
+        env:
+          SITE_BASE_URL: https://oleo.com.au
+        run: python scripts/generate-sitemap.py
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [[ -n "$(git status --porcelain sitemap.xml)" ]]; then
+            git add sitemap.xml
+            git commit -m "chore(sitemap): auto-regenerate [skip ci]"
+            git push
+          else
+            echo "sitemap.xml unchanged"
+          fi

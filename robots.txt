@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Auto-generated sitemap — regenerates on push via .github/workflows/sitemap.yml
+Sitemap: https://oleo.com.au/sitemap.xml

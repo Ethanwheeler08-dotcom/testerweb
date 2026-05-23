@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <!-- Designed 1200x630 share card. Cream background, OLEO wordmark on
+       the left, tagline + Perth WA stamp on the right, decorative orange
+       sparkle and blue accents to echo the brand. SVG is rendered by
+       modern social platforms; for legacy compatibility (Facebook), export
+       this file to PNG and overwrite assets/img/og-image.png. -->
+  <rect width="1200" height="630" fill="#e8e2d8"/>
+
+  <!-- Subtle blue glow top-left -->
+  <circle cx="80" cy="80" r="220" fill="#5d71ff" opacity="0.06"/>
+  <!-- Subtle orange glow bottom-right -->
+  <circle cx="1120" cy="560" r="260" fill="#d96935" opacity="0.05"/>
+
+  <!-- OLEO wordmark, scaled-up version of the nav logo -->
+  <g transform="translate(80 200)">
+    <!-- First O -->
+    <circle cx="80" cy="80" r="72" fill="#0f1112"/>
+    <!-- L -->
+    <path d="M180 12 L 180 152 L 270 152 L 270 124 L 210 124 L 210 12 Z" fill="#0f1112"/>
+    <!-- E -->
+    <path d="M280 12 L 280 152 L 370 152 L 370 124 L 310 124 L 310 96 L 360 96 L 360 72 L 310 72 L 310 40 L 370 40 L 370 12 Z" fill="#0f1112"/>
+    <!-- Second O with cream slits matching the E bars -->
+    <circle cx="455" cy="80" r="72" fill="#0f1112"/>
+    <rect x="383" y="72" width="32" height="24" fill="#e8e2d8"/>
+    <rect x="383" y="124" width="32" height="28" fill="#e8e2d8"/>
+    <!-- Blue motion sparks at the top-right of the second O -->
+    <g stroke="#5d71ff" stroke-width="5" stroke-linecap="round" fill="none">
+      <line x1="510" y1="28" x2="518" y2="10"/>
+      <line x1="525" y1="40" x2="540" y2="32"/>
+      <line x1="528" y1="60" x2="542" y2="60"/>
+    </g>
+  </g>
+
+  <!-- Orange spark decoration mid-right -->
+  <g transform="translate(820 200)" fill="#d96935" opacity="0.9">
+    <path d="M0 -60 L 9 -9 L 60 0 L 9 9 L 0 60 L -9 9 L -60 0 L -9 -9 Z"/>
+  </g>
+
+  <!-- Tagline -->
+  <g font-family="Georgia, serif" fill="#0f1112">
+    <text x="80" y="440" font-size="44" font-weight="500" letter-spacing="-1.5">Marketing for ambitious brands</text>
+    <text x="80" y="490" font-size="44" font-weight="500" letter-spacing="-1.5" font-style="italic">across Western Australia.</text>
+  </g>
+
+  <!-- Mono caption row at bottom-left, mirroring the site's eyebrow labels -->
+  <g font-family="ui-monospace, 'IBM Plex Mono', Menlo, monospace" font-size="18" letter-spacing="3" fill="#0f1112" opacity="0.65">
+    <text x="80" y="570">PERTH · WA   ·   PAID MEDIA   ·   PRODUCTION   ·   WEB</text>
+  </g>
+
+  <!-- Domain in bottom-right -->
+  <g font-family="ui-monospace, 'IBM Plex Mono', Menlo, monospace" font-size="18" letter-spacing="3" fill="#5d71ff">
+    <text x="1120" y="570" text-anchor="end">OLEO.COM.AU</text>
+  </g>
+</svg>
