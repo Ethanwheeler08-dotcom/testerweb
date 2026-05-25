@@ -172,6 +172,59 @@ function initCustomSelect(root) {
 document.querySelectorAll('.custom-select').forEach(initCustomSelect);
 
 /* ============================================
+   Stat count-up — ticks numbers to their value on scroll into view
+   ============================================ */
+(function () {
+  const els = document.querySelectorAll('[data-countup]');
+  if (!els.length) return;
+
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function render(el, value) {
+    const decimals = parseInt(el.dataset.decimals || '0', 10);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    el.textContent = prefix + value.toFixed(decimals) + suffix;
+  }
+
+  function animate(el) {
+    const target = parseFloat(el.dataset.value);
+    if (Number.isNaN(target)) return;
+    const duration = 1600;
+    const start = performance.now();
+    function frame(now) {
+      const t = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3); // easeOutCubic
+      render(el, target * eased);
+      if (t < 1) requestAnimationFrame(frame);
+      else render(el, target);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  // Reduced motion (or no IntersectionObserver): show final values immediately.
+  if (reduced || !('IntersectionObserver' in window)) {
+    els.forEach((el) => render(el, parseFloat(el.dataset.value)));
+    return;
+  }
+
+  els.forEach((el) => render(el, 0));
+
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animate(entry.target);
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.4 }
+  );
+  els.forEach((el) => observer.observe(el));
+})();
+
+/* ============================================
    Contact form, Formspree AJAX submission
    ============================================ */
 document.querySelectorAll('form[data-formspree]').forEach((form) => {

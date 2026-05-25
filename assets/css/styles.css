@@ -312,167 +312,84 @@ a { color: inherit; text-decoration: none; }
   inset: 0;
   z-index: 0;
   background:
-    radial-gradient(circle at 28% 25%, rgba(93, 113, 255, 0.32) 0%, transparent 55%),
-    radial-gradient(circle at 78% 80%, rgba(217, 105, 53, 0.15) 0%, transparent 55%),
+    radial-gradient(circle at 26% 22%, rgba(93, 113, 255, 0.28) 0%, transparent 52%),
+    radial-gradient(circle at 82% 84%, rgba(217, 105, 53, 0.14) 0%, transparent 55%),
     linear-gradient(160deg, var(--ink) 0%, var(--ink-soft) 100%);
 }
-.hero__visual-fade {
-  /* Sits in front of bubbles, behind stats — fades the bottom area to ink
-     so bubbles drifting near the stats don't compete with the type. */
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 38%;
-  z-index: 2;
-  pointer-events: none;
-  background: linear-gradient(
-    to top,
-    var(--ink) 8%,
-    rgba(15, 17, 18, 0.55) 45%,
-    transparent 100%
-  );
-}
-.hero__bubble-field {
+.hero__visual-grid {
   position: absolute;
   inset: 0;
   z-index: 1;
-  pointer-events: none;
-  overflow: hidden;
+  background-image:
+    linear-gradient(rgba(232, 226, 216, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232, 226, 216, 0.045) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(circle at 50% 45%, #000 55%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at 50% 45%, #000 55%, transparent 100%);
 }
-
-/* Each "pop track" spans the visual area vertically. The track translates
-   from translateY(8%) up to translateY(-92%); the bubble sits at the
-   track's bottom and the star sits in the same spot but only becomes
-   visible when the track is near the top, giving the illusion that the
-   bubble pops INTO a star at the top of its rise. */
-.hero__pop-track {
+/* Subtle static brand-colour accent shapes — quiet, sit behind the stats */
+.hero__accent {
   position: absolute;
-  left: var(--x);
-  top: 0;
-  bottom: 0;
-  width: 0;
+  z-index: 1;
   pointer-events: none;
-  animation: popTrack var(--dur) cubic-bezier(0.5, 0, 0.55, 1) var(--delay) infinite;
-  will-change: transform;
 }
-@keyframes popTrack {
-  0%   { transform: translate3d(0, 12%, 0); }
-  78%  { transform: translate3d(0, -88%, 0); }
-  100% { transform: translate3d(0, -88%, 0); }
-}
-
-.hero__bubble {
-  position: absolute;
-  bottom: 0;
-  left: calc(var(--size) / -2);
-  width: var(--size);
-  height: var(--size);
+.hero__accent--blue {
+  top: 8%;
+  right: 9%;
+  width: 5.5rem;
+  height: 5.5rem;
   border-radius: 50%;
-  background:
-    radial-gradient(
-      circle at 32% 28%,
-      rgba(255, 255, 255, 0.65) 0%,
-      rgba(180, 192, 255, 0.55) 22%,
-      rgba(93, 113, 255, 0.95) 65%,
-      rgba(69, 85, 224, 1) 100%
-    );
-  box-shadow:
-    0 0 16px rgba(93, 113, 255, 0.45),
-    inset 0 -4px 8px rgba(15, 17, 18, 0.22),
-    inset 0 2px 3px rgba(255, 255, 255, 0.25);
-  opacity: 0;
-  transform: scale(0.6);
-  animation: bubbleFade var(--dur) ease-out var(--delay) infinite;
-  will-change: transform, opacity;
+  background: radial-gradient(circle at 34% 32%, rgba(140, 156, 255, 0.9), var(--blue) 72%);
+  opacity: 0.4;
+  filter: blur(1px);
 }
-@keyframes bubbleFade {
-  0%   { opacity: 0; transform: scale(0.55); }
-  10%  { opacity: 1; transform: scale(1); }
-  72%  { opacity: 1; transform: scale(1); }
-  76%  { opacity: 0.95; transform: scale(1.28); }
-  79%  { opacity: 0; transform: scale(0.25); }
-  100% { opacity: 0; transform: scale(0.25); }
+.hero__accent--orange {
+  bottom: 11%;
+  right: 13%;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0 0.9rem 0.9rem 0.9rem;
+  background: var(--orange);
+  opacity: 0.35;
+  transform: rotate(-12deg);
 }
 
-.hero__star {
-  position: absolute;
-  bottom: calc(var(--size) / -2.2);
-  left: calc(var(--size) * -0.6);
-  width: calc(var(--size) * 1.45);
-  height: calc(var(--size) * 1.45);
-  color: var(--orange);
-  opacity: 0;
-  transform: scale(0.2);
-  animation: starBurst var(--dur) cubic-bezier(0.34, 1.56, 0.64, 1) var(--delay) infinite;
-  will-change: transform, opacity;
-}
-.hero__star svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-  fill: currentColor;
-  filter: drop-shadow(0 0 8px rgba(217, 105, 53, 0.55));
-}
-@keyframes starBurst {
-  0%, 76%  { opacity: 0; transform: scale(0.2) rotate(0); }
-  80%      { opacity: 1; transform: scale(1.3) rotate(22deg); }
-  85%      { opacity: 0.9; transform: scale(0.95) rotate(14deg); }
-  92%      { opacity: 0.5; transform: scale(1.05) translateY(-10px) rotate(6deg); }
-  100%     { opacity: 0; transform: scale(0.85) translateY(-16px) rotate(0); }
-}
-
-/* Stats overlay — sits above the bubble field and fade, with a soft text
-   shadow so the cream type stays crisp against the moving backdrop. */
+/* Stats are the hero element — stacked, centered, large, with a count-up. */
 .hero__stats {
   position: absolute;
-  bottom: 2.5rem;
-  left: 2.5rem;
-  right: 2.5rem;
+  inset: 0;
   z-index: 3;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2.25rem;
+  padding: clamp(2rem, 4vw, 3.25rem);
   color: var(--cream);
+}
+.hero__stat + .hero__stat {
+  padding-top: 2.25rem;
+  border-top: 1px solid rgba(232, 226, 216, 0.14);
 }
 .hero__stat-number {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-size: clamp(3.25rem, 6.5vw, 5rem);
   font-weight: 500;
   letter-spacing: -0.03em;
-  line-height: 1;
-  margin-bottom: 0.4rem;
-  text-shadow: 0 2px 14px rgba(15, 17, 18, 0.45);
+  line-height: 0.95;
+  margin-bottom: 0.6rem;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
 }
 .hero__stat-label {
-  font-size: 0.85rem;
-  opacity: 0.78;
-  letter-spacing: 0.02em;
-  line-height: 1.3;
-  text-shadow: 0 1px 8px rgba(15, 17, 18, 0.5);
+  font-size: 0.95rem;
+  opacity: 0.72;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+  max-width: 19rem;
 }
 
-/* Reduced motion: freeze each bubble at its --static-y position with a
-   visible opacity, and hide stars. The animation loop is dropped entirely;
-   the field becomes a still composition of scattered blue bubbles. */
-@media (prefers-reduced-motion: reduce) {
-  .hero__pop-track {
-    animation: none;
-    transform: translate3d(0, var(--static-y, -50%), 0);
-  }
-  .hero__bubble {
-    animation: none;
-    opacity: var(--static-opacity, 0.7);
-    transform: scale(1);
-  }
-  .hero__star { display: none; }
-}
-
-/* Slightly tighter scale on mobile so bubbles don't overwhelm the panel
-   when the visual block is narrower. */
 @media (max-width: 900px) {
-  .hero__visual-fade { height: 32%; }
-  .hero__bubble { transform-origin: center; }
+  .hero__stat-number { font-size: clamp(3rem, 11vw, 4.5rem); }
 }
 
 /* hero__scribble removed — was reading as disconnected next to the CTAs */
@@ -1061,6 +978,43 @@ a { color: inherit; text-decoration: none; }
   font-size: 0.95rem;
   line-height: 1.55;
   opacity: 0.85;
+}
+
+/* Industries grid (Work page) */
+.industries-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 3rem;
+}
+.industry-card {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1.75rem;
+  background: rgba(15, 17, 18, 0.02);
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+.industry-card:hover {
+  background: rgba(15, 17, 18, 0.05);
+  transform: translateY(-2px);
+}
+.industry-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+.industry-card p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  opacity: 0.8;
+}
+@media (max-width: 800px) {
+  .industries-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 520px) {
+  .industries-grid { grid-template-columns: 1fr; }
 }
 
 /* ====== TWO COLUMN INTRO ====== */
@@ -2357,6 +2311,57 @@ footer.footer {
 }
 .nav__menu a.nav__spark:hover .nav__spark-flair svg path {
   stroke-dashoffset: 0;
+}
+
+/* ============================================
+   THE SPARK — hero flair cluster (decorative)
+   A field of twinkling sparks filling the right side of the hero,
+   echoing the nav spark style. Each spark scales + fades on its own
+   stagger. Purely decorative (aria-hidden); frozen under reduced motion.
+   ============================================ */
+.spark-cluster {
+  position: relative;
+  width: 100%;
+  min-height: 24rem;
+  align-self: stretch;
+}
+.spark-cluster__item {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--size);
+  height: var(--size);
+  margin: calc(var(--size) / -2) 0 0 calc(var(--size) / -2);
+  color: var(--spark-color, var(--blue));
+  opacity: 0.18;
+  transform: scale(0.7);
+  animation: sparkTwinkle var(--dur, 3.4s) ease-in-out var(--delay, 0s) infinite;
+  will-change: transform, opacity;
+}
+.spark-cluster__item svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  fill: currentColor;
+  stroke: currentColor;
+}
+.spark-cluster__item--burst svg { fill: none; stroke-width: 2.4; stroke-linecap: round; }
+.spark-cluster__item--lead {
+  filter: drop-shadow(0 0 14px rgba(93, 113, 255, 0.35));
+}
+@keyframes sparkTwinkle {
+  0%, 100% { opacity: 0.16; transform: scale(0.65) rotate(-6deg); }
+  50%      { opacity: 1;    transform: scale(1) rotate(8deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .spark-cluster__item {
+    animation: none;
+    opacity: 0.7;
+    transform: scale(0.92);
+  }
+}
+@media (max-width: 900px) {
+  .spark-cluster { min-height: 14rem; max-width: 22rem; margin: 0 auto; }
 }
 
 /* ============================================
