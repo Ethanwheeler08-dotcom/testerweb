@@ -1017,6 +1017,135 @@ a { color: inherit; text-decoration: none; }
   .industries-grid { grid-template-columns: 1fr; }
 }
 
+/* ====== LOGO CAROUSELS (Work page) ======
+   Infinite marquees. Each track holds the tile set twice so a -50%
+   translate loops seamlessly. To swap a placeholder for a real logo,
+   replace the inner <span class="logo-tile__placeholder">…</span> with
+   <img src="assets/img/logos/your-logo.svg" alt="Brand name">. Keep the
+   duplicate set ([data-dup]) in sync with the visible set. */
+.logo-carousels { display: flex; flex-direction: column; gap: 2.75rem; margin-top: 3rem; }
+.logo-carousel__label {
+  font-family: 'Inter', var(--font-body);
+  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  margin-bottom: 1rem;
+}
+.logo-carousel {
+  position: relative;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+.logo-carousel__track {
+  display: flex;
+  gap: 1.25rem;
+  width: max-content;
+  will-change: transform;
+}
+.logo-carousel__track--ltr { animation: logoMarqueeLtr var(--speed, 40s) linear infinite; }
+.logo-carousel__track--rtl { animation: logoMarqueeRtl var(--speed, 40s) linear infinite; }
+.logo-carousel:hover .logo-carousel__track { animation-play-state: paused; }
+@keyframes logoMarqueeLtr {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+@keyframes logoMarqueeRtl {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.logo-tile {
+  flex: 0 0 auto;
+  width: 180px;
+  height: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 17, 18, 0.03);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1rem 1.5rem;
+}
+.logo-tile img {
+  max-width: 100%;
+  max-height: 44px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+.logo-tile__placeholder {
+  font-family: 'Inter', var(--font-body);
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(15, 17, 18, 0.35);
+}
+@media (max-width: 600px) {
+  .logo-tile { width: 142px; height: 78px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .logo-carousel { -webkit-mask-image: none; mask-image: none; }
+  .logo-carousel__track {
+    animation: none;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+  }
+  .logo-carousel__track [data-dup] { display: none; }
+}
+
+/* ====== CREDIBILITY (paid ads capability) ====== */
+.credibility {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+.credibility__visual {
+  aspect-ratio: 4 / 3;
+  background: rgba(232, 226, 216, 0.06);
+  border: 1px solid rgba(232, 226, 216, 0.16);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.credibility__logo-placeholder {
+  font-family: 'Inter', var(--font-body);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.4;
+  text-align: center;
+  line-height: 1.7;
+}
+.credibility__copy p { font-size: 1.1rem; line-height: 1.6; opacity: 0.9; }
+.credibility__list {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+}
+.credibility__list li {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  font-size: 1rem;
+  line-height: 1.5;
+  opacity: 0.92;
+}
+.credibility__list svg { flex: 0 0 auto; width: 1.15rem; height: 1.15rem; margin-top: 0.18rem; }
+@media (max-width: 800px) {
+  .credibility { grid-template-columns: 1fr; gap: 2rem; }
+}
+
 /* ====== TWO COLUMN INTRO ====== */
 .two-col {
   display: grid;
