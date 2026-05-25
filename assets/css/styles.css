@@ -2613,3 +2613,65 @@ html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
 .lenis.lenis-stopped { overflow: hidden; }
 
+/* ============================================
+   FRIENDLIER CORNERS — soften case cards & logo tiles
+   (overrides the earlier fortem 4px restraint for these elements)
+   ============================================ */
+.work-card { border-radius: 1.5rem; }
+.case__visual { border-radius: 1.5rem; }
+.logo-tile { border-radius: 1rem; }
+.credibility__visual { border-radius: 1.25rem; }
+
+/* ============================================
+   HOMEPAGE — equestrian case horse graphic (clickable, pop on hover)
+   ============================================ */
+.case__horse {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64%;
+  max-width: 270px;
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.case__horse img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 10px 24px rgba(15, 17, 18, 0.25));
+}
+.case__horse:hover { transform: scale(1.05) rotate(-2deg); }
+.case__horse-flair {
+  position: absolute;
+  top: 2%;
+  right: 4%;
+  width: 46px;
+  height: 46px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(8px) scale(0.5) rotate(-14deg);
+  transition:
+    opacity 0.2s ease,
+    transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.case__horse-flair svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.case__horse-flair svg line {
+  fill: none;
+  stroke: var(--blue);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+  transition: stroke-dashoffset 0.45s ease 0.06s;
+}
+.case__horse:hover .case__horse-flair {
+  opacity: 1;
+  transform: translateY(0) scale(1) rotate(0);
+}
+.case__horse:hover .case__horse-flair svg line { stroke-dashoffset: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .case__horse, .case__horse:hover { transform: none; }
+  .case__horse-flair { transition: opacity 0.2s ease; transform: none; }
+  .case__horse:hover .case__horse-flair svg line { transition: none; }
+}
+
