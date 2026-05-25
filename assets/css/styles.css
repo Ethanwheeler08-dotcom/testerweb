@@ -1107,13 +1107,21 @@ a { color: inherit; text-decoration: none; }
 }
 .credibility__visual {
   aspect-ratio: 4 / 3;
-  background: rgba(232, 226, 216, 0.06);
+  background: var(--cream-light);
   border: 1px solid rgba(232, 226, 216, 0.16);
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 2.5rem;
+}
+.credibility__visual img {
+  max-width: 80%;
+  max-height: 72%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
 }
 .credibility__logo-placeholder {
   font-family: 'Inter', var(--font-body);
@@ -2123,9 +2131,14 @@ footer.footer {
   width: 100%;
   max-width: 22rem;
   height: 1px;
-  margin: 3rem auto;
+  margin: 3.25rem auto;
   background: rgba(232, 226, 216, 0.16);
 }
+/* The Pop bottom — balanced, centered vertical rhythm */
+.newsletter-wrap .cs-next__eyebrow { margin-bottom: 0.85rem; }
+.newsletter-wrap .cs-next__title { margin: 0 auto 1rem; max-width: 28rem; }
+.newsletter-wrap .newsletter-copy { margin-top: 0; margin-bottom: 1.85rem; }
+.pop-cta-row { margin-top: 0; }
 .newsletter-copy {
   font-size: 1.05rem;
   line-height: 1.6;
