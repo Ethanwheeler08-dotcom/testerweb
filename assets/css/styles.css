@@ -2111,6 +2111,21 @@ footer.footer {
    NEWSLETTER (dark-section subscribe form)
    ============================================ */
 .newsletter-wrap { text-align: center; }
+/* The Pop bottom CTA row + divider before the newsletter signup */
+.pop-cta-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+.pop-newsletter-divider {
+  width: 100%;
+  max-width: 22rem;
+  height: 1px;
+  margin: 3rem auto;
+  background: rgba(232, 226, 216, 0.16);
+}
 .newsletter-copy {
   font-size: 1.05rem;
   line-height: 1.6;
