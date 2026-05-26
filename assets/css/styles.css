@@ -2119,26 +2119,10 @@ footer.footer {
    NEWSLETTER (dark-section subscribe form)
    ============================================ */
 .newsletter-wrap { text-align: center; }
-/* The Pop bottom CTA row + divider before the newsletter signup */
-.pop-cta-row {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 0.5rem;
-}
-.pop-newsletter-divider {
-  width: 100%;
-  max-width: 22rem;
-  height: 1px;
-  margin: 3.25rem auto;
-  background: rgba(232, 226, 216, 0.16);
-}
 /* The Pop bottom — balanced, centered vertical rhythm */
 .newsletter-wrap .cs-next__eyebrow { margin-bottom: 0.85rem; }
-.newsletter-wrap .cs-next__title { margin: 0 auto 1rem; max-width: 28rem; }
+.newsletter-wrap .cs-next__title { margin: 0 auto 1rem; max-width: 30rem; }
 .newsletter-wrap .newsletter-copy { margin-top: 0; margin-bottom: 1.85rem; }
-.pop-cta-row { margin-top: 0; }
 .newsletter-copy {
   font-size: 1.05rem;
   line-height: 1.6;
