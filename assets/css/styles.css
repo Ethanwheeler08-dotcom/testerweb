@@ -2687,3 +2687,56 @@ html.lenis, html.lenis body { height: auto; }
   .case__horse:hover .case__horse-flair svg line { transition: none; }
 }
 
+
+/* ============================================
+   HOMEPAGE — rolling service reel (slot-machine)
+   A vertical reel cycles service names. Pure CSS: the list translates
+   up one item at a time, holding on each, with a duplicate first item
+   at the end so the loop is seamless. aria-hidden on the reel; a
+   visually-hidden full list announces the real services to screen
+   readers. Reduced-motion users see the first service, static.
+   ============================================ */
+.reel-band { padding-top: 5rem; padding-bottom: 5rem; }
+.reel-headline {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.5rem, 6vw, 4.75rem);
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.05em 0.3em;
+  color: var(--ink);
+}
+.reel-headline__lead { display: inline-block; }
+.reel {
+  display: inline-block;
+  height: 1.2em;
+  line-height: 1.2em;
+  overflow: hidden;
+  color: var(--blue);
+  text-align: left;
+}
+.reel__list {
+  display: flex;
+  flex-direction: column;
+  animation: reelRoll 8s cubic-bezier(0.76, 0, 0.24, 1) infinite;
+  will-change: transform;
+}
+.reel__item {
+  height: 1.2em;
+  line-height: 1.2em;
+  white-space: nowrap;
+}
+@keyframes reelRoll {
+  0%, 21%   { transform: translateY(0%); }
+  29%, 54%  { transform: translateY(-25%); }
+  62%, 87%  { transform: translateY(-50%); }
+  95%, 100% { transform: translateY(-75%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reel__list { animation: none; transform: translateY(0); }
+}
