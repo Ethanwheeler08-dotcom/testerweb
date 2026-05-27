@@ -311,6 +311,7 @@ a { color: inherit; text-decoration: none; }
    centred in the hero's right column on the page background. */
 .hero__visual--bare {
   aspect-ratio: auto;
+  border: none;
   border-radius: 0;
   overflow: visible;
   background: none;
