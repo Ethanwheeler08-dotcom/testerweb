@@ -1,0 +1,14 @@
+# Netlify redirects for oleo.com.au
+# Processed top-to-bottom; first match wins.
+
+# Force www -> non-www (catch-all)
+https://www.oleo.com.au/*   https://oleo.com.au/:splat   301!
+
+# 9 legacy URLs from the previous oleo.com.au site, surfaced as 404s in
+# Google Search Console. Send them all to the homepage so the link
+# equity is preserved and Google can drop them from the index.
+/service              /   301
+/order-confirmation   /   301
+/paypal-checkout      /   301
+/product/*            /   301
+/category/*           /   301
